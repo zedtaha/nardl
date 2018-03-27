@@ -35,6 +35,10 @@ lagm <- function(m, nLags) {
 
   d <- dim(m)
 
+  #Add column names if they don't exist yet
+  if(is.null(colnames(m)))
+    colnames(m) <- as.character(seq_len(d[2]))
+
   #Check
   if(nLags > d[1])
     stop(sprintf("You try to create %d lags but there's only %d rows in m.",
@@ -49,9 +53,9 @@ lagm <- function(m, nLags) {
     lagM[(i+1):d[1],cid] <- m[1:(d[1]-i),]
   }
 
-  cnames <- paste(colnames(m),seq_len(nLags), sep = "_")
-  if(d[2] > 1) cnames <- rep(cnames, each = d[2])
-  colnames(lagM) <- cnames
+  cnames <- outer(colnames(m),seq_len(nLags), FUN = paste, sep = "_")
+
+  colnames(lagM) <- c(cnames)
 
   return(lagM)
 
