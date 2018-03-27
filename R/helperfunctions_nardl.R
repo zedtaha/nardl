@@ -2,21 +2,24 @@
 
 #-------------------------------------------------------------------------------
 # Function trimr
-trimr <- function(x,rb,re) {
-  # Performance improvement over cbind
-  # x <- cbind(x)
-  if(!is.matrix(x)) x <- matrix(x, ncol=1)
-
-  n <- nrow(x)
-  if ((rb+re) >= n) {
-    stop('Attempting to trim too much')
-  }
-  z <- x[(rb+1):(n-re),]
-  return(z)
-}
+#
+# Became redundant after rewriting lagm
+# trimr <- function(x,rb,re) {
+#   # Performance improvement over cbind
+#   # x <- cbind(x)
+#   if(!is.matrix(x)) x <- matrix(x, ncol=1)
+#
+#   n <- nrow(x)
+#   if ((rb+re) >= n) {
+#     stop('Attempting to trim too much')
+#   }
+#   z <- x[(rb+1):(n-re),]
+#   return(z)
+# }
 
 #-------------------------------------------------------------------------------
 # Function lagm
+# INPUT: m is a matrix, nLags the number of lags
 lagm <- function(m, nLags) {
   # JM: This code is redundant. More than 2 arguments will cause an error
   # anyway, less than 2 arguments will cause an error about missing

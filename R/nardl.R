@@ -115,10 +115,10 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
     for (i in 1:ordmax){
       #lagmat = cbind(lagmat[-i,],x[(1):(l1-i)]) # lagged matrix
       # armod <- lm(x[(i+1):l1]~lagmat)
-      ldy<-lagm(dy,c(1:i))
-      ldh<-lagm(as.matrix(dh),c(1:i))
-      ldxp<-lagm(as.matrix(dxp),c(1:i))
-      ldxn<-lagm(as.matrix(dxn),c(1:i))
+      ldy<-lagm(dy,i)
+      ldh<-lagm(as.matrix(dh),i)
+      ldxp<-lagm(as.matrix(dxp),i)
+      ldxn<-lagm(as.matrix(dxn),i)
       lagy<-na.omit(lagy)
       lagh<-na.omit(lagh)
       fit<-lm(dy~lagy+lxp+lxn+ldy+ldxp+ldxn+lagh+ldh)
@@ -136,10 +136,10 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
     #nnp<-ores[duplicated(ores)]
     #nnp<-nnp[1]
     #np<-3
-    ldy<-lagm(dy,c(1:np))
-    ldh<-lagm(as.matrix(dh),c(1:np))
-    ldxp<-lagm(as.matrix(dxp),c(1:np))
-    ldxn<-lagm(as.matrix(dxn),c(1:np))
+    ldy<-lagm(dy,np)
+    ldh<-lagm(as.matrix(dh),np)
+    ldxp<-lagm(as.matrix(dxp),np)
+    ldxn<-lagm(as.matrix(dxn),np)
     lagy<-na.omit(lagy)
     lagh<-na.omit(lagh)
     lhnames<-colnames(dy)
@@ -208,9 +208,9 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
     }
 
     for (i in 1:ordmax){
-      ldy<-lagm(dy,c(1:i))
-      ldxp<-lagm(as.matrix(dxp),c(1:i))
-      ldxn<-lagm(as.matrix(dxn),c(1:i))
+      ldy<-lagm(dy,i)
+      ldxp<-lagm(as.matrix(dxp),i)
+      ldxn<-lagm(as.matrix(dxn),i)
       lagy<-na.omit(lagy)
       fit<-lm(dy~lagy+lxp+lxn+ldy+ldxp+ldxn)
       R2[i] = summary(fit)$adj.r.squared
@@ -223,9 +223,9 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
     if(ic=="bic") np<-which.min(SC)
     if(ic=="R2") np<-which.max(R2)
     if(ic=="ll") np<-which.max(ll)
-    ldy<-lagm(dy,c(1:np))
-    ldxp<-lagm(as.matrix(dxp),c(1:np))
-    ldxn<-lagm(as.matrix(dxn),c(1:np))
+    ldy<-lagm(dy,np)
+    ldxp<-lagm(as.matrix(dxp),np)
+    ldxn<-lagm(as.matrix(dxn),np)
     lagy<-na.omit(lagy)
 
 
