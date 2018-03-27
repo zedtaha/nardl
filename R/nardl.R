@@ -193,7 +193,7 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
     AK = NULL
     SC = NULL
     ll= NULL
-    if(maxlags==TRUE){
+    if(maxlags){
       ordmax<-floor(nrow(dy)^(1/3))
     }
     if(is.null(p) && is.null(q)){
