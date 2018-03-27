@@ -316,69 +316,6 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
 
 }
 
-cumsq<-function(e,k,n){
-  w<-as.matrix(na.omit(e))
-  w=cumsum(w^2)/sum(w^2)
-  m=abs(0.5*(n-k)-1) #abs to avoid negative log
-  c=0.74191-0.17459*log(m)-0.26526*(1/m)+0.0029985*m-0.000010943*m^2
-  w2=c+(seqa(k,1,length(w))-k)/(n-k)
-  w1=-c+(seqa(k,1,length(w))-k)/(n-k)
-  x<-seqa(k,1,length(w))
-  w1<-matrix(w1,length(w1),1)
-  w<-matrix(w,length(w),1)
-  w2<-matrix(w2,length(w2),1)
-  grange<-range(w1,w2)
-  par(mar = c(5,4,4,8))
-  plot(x,w,main="CUSUM of Squares Test",type = "l",ylim = grange,xlab ="",ylab = "Emperical fluctuation process",col="blue")
-  lines(x,w1,col="red")
-  lines(x,w2,col="red")
-  abline(h=0,lty=2)
-  legend(par("usr")[2],par("usr")[4],
-         xpd = TRUE ,
-         bty = "n",
-         c("CUSUM of squares","5% significance"),
-         lty = c(1, 1),
-         cex=0.6,
-         col=c("blue","red") )
-
-}
-
-cusum<-function(e,k,n){
-  w<-as.matrix(na.omit(e))
-  #n<-length(e)
-  w=cumsum(w/apply(w, 2, sd))
-  c=0.984
-  w2=seqa(c*sqrt(n-k),(2*c*sqrt(n-k))/length(w),length(w))
-  w1=seqa(-c*sqrt(n-k),(-2*c*sqrt(n-k))/length(w),length(w))
-  x<-seqa(k,1,length(w))
-  w1<-matrix(w1,length(w1),1)
-  w<-matrix(w,length(w),1)
-  w2<-matrix(w2,length(w2),1)
-  grange<-range(w1,w2)
-  par(mar = c(5,4,4,8))
-  plot(x,w,main="CUSUM Test",type = "l",ylim = grange,xlab = "",ylab = "Emperical fluctuation process",col="blue")
-  lines(x,w1,col="red")
-  lines(x,w2,col="red")
-  abline(h=0,lty=2)
-  legend(par("usr")[2],par("usr")[4],
-         xpd = TRUE ,
-         bty = "n",
-         c("CUSUM ","5% significance"),
-         lty = c(1, 1),
-         cex=0.6,
-         col=c("blue","red") )
-
-}
-
-seqa<-function(a,b,c){
-  #seq=(a:b:(a+b*(c-1)))';
-  se<-seq(a,(a+b*(c-1)),by=b)
-  return(t(se))
-}
-
-
-
-
 #' summary
 #'
 #' @param object is the object of the function
