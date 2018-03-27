@@ -1,16 +1,4 @@
-#' Indian yearly data of inflation rate and percentage food import to total import
-#'
-#' \itemize{
-#' \item{food}{percentage food import to total import}
-#' \item{inf}{inflation rate}
-#' \item{year}{the year}
-#' }
-#'
-#' @docType data
-#' @name  fod
-#' @usage data(fod)
-#' @format A data frame with 54 rows and 2 variables
-NULL
+
 
 trimr <- function(x,rb,re) {
   x <- cbind(x)
