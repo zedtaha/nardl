@@ -3,7 +3,10 @@
 #-------------------------------------------------------------------------------
 # Function trimr
 trimr <- function(x,rb,re) {
-  x <- cbind(x)
+  # Performance improvement over cbind
+  # x <- cbind(x)
+  if(!is.matrix(x)) x <- matrix(x, ncol=1)
+
   n <- nrow(x)
   if ((rb+re) >= n) {
     stop('Attempting to trim too much')
