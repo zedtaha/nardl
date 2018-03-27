@@ -42,11 +42,8 @@
 #'
 #'@export
 nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
-                maxlags=TRUE,graph=FALSE,case=NULL){
-  if(is.null(case)){
-    case<-3
-  }
-  else{case<-case}
+                maxlags=TRUE,graph=FALSE,case= 3){
+
   f<-formula
   a<-unlist(strsplit(as.character(f),"[|]"))
   #core<-paste(un[[2]],"~",un[[3]],"+",un[[4]])
