@@ -27,24 +27,31 @@ lagm <- function(m, nLags) {
   #   stop('Check function inputs')
   # }
 
-  lagM <- c()
-  for(i in seq(nLags)) {
-    for(j in seq(ncol(m))) {
-      tmp <- c(rep(NA, i), trimr(m[,j], 0, i))
-      #colnames(tmp)<-colnames(m)
+  if(!is.matrix(m))
+    stop("Trying to lag something that's not a matrix")
 
-      lagM <- cbind(lagM, tmp)
+  d <- dim(m)
 
-    }
+  #Check
+  if(nLags > d[1])
+    stop(sprintf("You try to create %d lags but there's only %d rows in m.",
+                 nLags, d[1]))
+
+  lagM <- matrix(NA,nrow=d[1], ncol = d[2]*nLags)
+
+  for(i in seq_len(nLags)){
+    #Make ids for the columns in result
+    cid <- seq(1:d[2]) + d[2]*(i-1)
+
+    lagM[(i+1):d[1],cid] <- m[1:(d[1]-i),]
   }
-  if(ncol(m)>=2){
-    colnames(lagM)<-paste(colnames(m)[1:ncol(m)],rep(seq(nLags), each=ncol(m)),sep = "_")
-  }
-  else{
-    colnames(lagM)<-paste(colnames(m),c(1:ncol(lagM)),sep = "_")
-  }
-  #seq(nLags*ncol(m))
-  return(as.matrix(lagM))
+
+  cnames <- paste(colnames(m),seq_len(nLags), sep = "_")
+  if(d[2] > 1) cnames <- rep(cnames, each = d[2])
+  colnames(lagM) <- cnames
+
+  return(lagM)
+
 }
 
 #-------------------------------------------------------------------------------
