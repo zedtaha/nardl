@@ -11,3 +11,5 @@ LazyData: true
 RoxygenNote: 6.0.1
 Imports: stats, strucchange, tseries, matlab, Formula, gtools
 Suggests: testthat
+BugReports: https://github.com/zedtaha/nardl/issues
+URL: https://github.com/zedtaha/nardl
