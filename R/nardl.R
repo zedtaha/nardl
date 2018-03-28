@@ -316,40 +316,6 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
 
 }
 
-#' summary
-#'
-#' @param object is the object of the function
-#' @param ... not used
-#' @importFrom stats printCoefmat
-#' @export
-summary.nardl<-function(object,...)
-{
-
-  cat("==============================================================\n")
-  cat("\n Lag and lead selection:\n")
-  icres<-cbind(object$AK,object$SC,object$ll,object$R2)
-  colnames(icres)<-c("AIC","BIC","ll","R2")
-  print(icres)
-  cat("\n NARDL model:\n")
-  print(object$sel)
-  cat("---------------------------------\n")
-  cat("\n model diagnostic tests:\n----------\n")
-  cat(" JB test:\n","JB:",object$jbtest$statistic[[1]],"Pvalue",object$jbtest$p.value[[1]],"\n----------\n")
-  #cat(" LM test for serial correlation:\n","LM(",object$np,"):",object$lmtest$statistic[[1]],"Pvalue",object$lmtest$p.value[[1]],"\n----------\n")
-  cat(" LM test for serial correlation:\n","LM(",object$np,"):",object$lm2[1],"Pvalue",object$lm2[2],"\n----------\n")
-  cat(" ARCH test:\n","ARCH(",object$np,"):",object$arch$statistic[[1]],"Pvalue",object$arch$p.value[[1]],"\n----------\n")
-  cat("==============================================================\n")
-  cat("Asymmetric Cointegration test\n")
- # print( bounds.test(3,object$k,object$fstat))
-  pssbounds(case=object$case,obs=object$obs,fstat=object$fstat,k = object$k)
-  cat("==============================================================\n")
-  cat("\nLong-run coefficients\n")
-  printCoefmat(object$lres,has.Pvalue = TRUE,signif.stars = TRUE)
-  cat("==============================================================\n")
-  cat(" Long Run Asymmety test\n","F-stat:",object$tasym[2],"Pvalue:",object$pasym[2],"\n")
-  cat("==============================================================\n")
-
-}
 
 
 

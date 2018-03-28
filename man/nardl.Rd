@@ -5,7 +5,7 @@
 \title{Nonlinear ARDL function}
 \usage{
 nardl(formula, data, p = NULL, q = NULL, ic = c("aic", "bic", "ll", "R2"),
-  maxlags = TRUE, graph = FALSE, case = NULL)
+  maxlags = TRUE, graph = FALSE, case = 3)
 }
 \arguments{
 \item{formula}{food~inf or food~inf|I(inf^2)}
