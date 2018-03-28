@@ -1,118 +1,3 @@
-#' Indian yearly data of inflation rate and percentage food import to total import
-#'
-#' \itemize{
-#' \item{food}{percentage food import to total import}
-#' \item{inf}{inflation rate}
-#' \item{year}{the year}
-#' }
-#'
-#' @docType data
-#' @name  fod
-#' @usage data(fod)
-#' @format A data frame with 54 rows and 2 variables
-NULL
-
-trimr <- function(x,rb,re) {
-  x <- cbind(x)
-  n <- nrow(x)
-  if ((rb+re) >= n) {
-    stop('Attempting to trim too much')
-  }
-  z <- x[(rb+1):(n-re),]
-  return(z)
-}
-
-
-lagm <- function(m, nLags) {
-  nargin <- length(as.list(match.call())) - 1
-  if (nargin != 2) {
-    stop('Check function inputs')
-  }
-  lagM <- c()
-  for(i in seq(nLags)) {
-    for(j in seq(ncol(m))) {
-      tmp <- c(rep(NA, i), trimr(m[,j], 0, i))
-      #colnames(tmp)<-colnames(m)
-
-      lagM <- cbind(lagM, tmp)
-
-    }
-  }
-  if(ncol(m)>=2){
-    colnames(lagM)<-paste(colnames(m)[1:ncol(m)],rep(seq(nLags), each=ncol(m)),sep = "_")
-  }
-  else{
-    colnames(lagM)<-paste(colnames(m),c(1:ncol(lagM)),sep = "_")
-  }
-  #seq(nLags*ncol(m))
-  return(as.matrix(lagM))
-}
-
-ArchTest <- function (x, lags=12, demean = FALSE)
-{
-  # Capture name of x for documentation in the output
-  xName <- deparse(substitute(x))
-  #
-  x <- as.vector(x)
-  if(demean) x <- scale(x, center = TRUE, scale = FALSE)
-  #
-  lags <- lags + 1
-  mat <- embed(x^2, lags)
-  arch.lm <- summary(lm(mat[, 1] ~ mat[, -1]))
-  STATISTIC <- arch.lm$r.squared * length(resid(arch.lm))
-  names(STATISTIC) <- "Chi-squared"
-  PARAMETER <- lags - 1
-  names(PARAMETER) <- "df"
-  PVAL <- 1 - pchisq(STATISTIC, df = PARAMETER)
-  METHOD <- "ARCH LM-test;  Null hypothesis:  no ARCH effects"
-  result <- list(statistic = STATISTIC, parameter = PARAMETER,
-                 p.value = PVAL, method = METHOD, data.name =
-                   xName)
-  class(result) <- "htest"
-  return(result)
-}
-
-ginv <- function(x, tol = sqrt(.Machine$double.eps))
-{
-  ## Generalized Inverse of a Matrix
-  dnx <- dimnames(x)
-  if(is.null(dnx)) dnx <- vector("list", 2)
-  s <- svd(x)
-  nz <- s$d > tol * s$d[1]
-  structure(
-    if(any(nz)) s$v[, nz] %*% (t(s$u[, nz])/s$d[nz]) else x,
-    dimnames = dnx[2:1])
-}
-
-
-bp2<-function(object,nlags,fill=NULL,type=c("F","Chi2")){
-  e<-as.matrix(object$residuals)
-  n<-nrow(e)
-  x<-as.matrix(object$model[,-1])
-  xx<-cbind(x,lagm(e,nlags))
-  if(fill==0){
-    xx<-na.replace(xx,0)
-    u<-lm(e~xx)
-    r2<-summary(u)$r.squared
-    LM<-n*r2
-    pv<-pchisq(LM,nlags,lower.tail = FALSE)
-
-  }
-  else{
-    u<-lm(e~xx)
-    r2<-summary(u)$r.squared
-    LM<-(n-nlags)*r2
-    }
-  if(type=="Chi2"){pv<-pchisq(LM,nlags,lower.tail = FALSE)}
-  if(type=="F"){pv<-pf(LM,nlags,1,lower.tail = FALSE)}
-
-  res<-cbind(LM,pv,nlags)
-  colnames(res)<-c("LM","P-value","lags")
-  return(res)
-}
-
-
-
 #'Nonlinear ARDL function
 #'
 #'@param formula food~inf or food~inf|I(inf^2)
@@ -157,11 +42,8 @@ bp2<-function(object,nlags,fill=NULL,type=c("F","Chi2")){
 #'
 #'@export
 nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
-                maxlags=TRUE,graph=FALSE,case=NULL){
-  if(is.null(case)){
-    case<-3
-  }
-  else{case<-case}
+                maxlags=TRUE,graph=FALSE,case= 3){
+
   f<-formula
   a<-unlist(strsplit(as.character(f),"[|]"))
   #core<-paste(un[[2]],"~",un[[3]],"+",un[[4]])
@@ -230,10 +112,10 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
     for (i in 1:ordmax){
       #lagmat = cbind(lagmat[-i,],x[(1):(l1-i)]) # lagged matrix
       # armod <- lm(x[(i+1):l1]~lagmat)
-      ldy<-lagm(dy,c(1:i))
-      ldh<-lagm(as.matrix(dh),c(1:i))
-      ldxp<-lagm(as.matrix(dxp),c(1:i))
-      ldxn<-lagm(as.matrix(dxn),c(1:i))
+      ldy<-lagm(dy,i)
+      ldh<-lagm(as.matrix(dh),i)
+      ldxp<-lagm(as.matrix(dxp),i)
+      ldxn<-lagm(as.matrix(dxn),i)
       lagy<-na.omit(lagy)
       lagh<-na.omit(lagh)
       fit<-lm(dy~lagy+lxp+lxn+ldy+ldxp+ldxn+lagh+ldh)
@@ -251,10 +133,10 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
     #nnp<-ores[duplicated(ores)]
     #nnp<-nnp[1]
     #np<-3
-    ldy<-lagm(dy,c(1:np))
-    ldh<-lagm(as.matrix(dh),c(1:np))
-    ldxp<-lagm(as.matrix(dxp),c(1:np))
-    ldxn<-lagm(as.matrix(dxn),c(1:np))
+    ldy<-lagm(dy,np)
+    ldh<-lagm(as.matrix(dh),np)
+    ldxp<-lagm(as.matrix(dxp),np)
+    ldxn<-lagm(as.matrix(dxn),np)
     lagy<-na.omit(lagy)
     lagh<-na.omit(lagh)
     lhnames<-colnames(dy)
@@ -311,7 +193,7 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
     AK = NULL
     SC = NULL
     ll= NULL
-    if(maxlags==TRUE){
+    if(maxlags){
       ordmax<-floor(nrow(dy)^(1/3))
     }
     if(is.null(p) && is.null(q)){
@@ -323,9 +205,9 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
     }
 
     for (i in 1:ordmax){
-      ldy<-lagm(dy,c(1:i))
-      ldxp<-lagm(as.matrix(dxp),c(1:i))
-      ldxn<-lagm(as.matrix(dxn),c(1:i))
+      ldy<-lagm(dy,i)
+      ldxp<-lagm(as.matrix(dxp),i)
+      ldxn<-lagm(as.matrix(dxn),i)
       lagy<-na.omit(lagy)
       fit<-lm(dy~lagy+lxp+lxn+ldy+ldxp+ldxn)
       R2[i] = summary(fit)$adj.r.squared
@@ -338,9 +220,9 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
     if(ic=="bic") np<-which.min(SC)
     if(ic=="R2") np<-which.max(R2)
     if(ic=="ll") np<-which.max(ll)
-    ldy<-lagm(dy,c(1:np))
-    ldxp<-lagm(as.matrix(dxp),c(1:np))
-    ldxn<-lagm(as.matrix(dxn),c(1:np))
+    ldy<-lagm(dy,np)
+    ldxp<-lagm(as.matrix(dxp),np)
+    ldxn<-lagm(as.matrix(dxn),np)
     lagy<-na.omit(lagy)
 
 
@@ -434,103 +316,6 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
 
 }
 
-cumsq<-function(e,k,n){
-  w<-as.matrix(na.omit(e))
-  w=cumsum(w^2)/sum(w^2)
-  m=abs(0.5*(n-k)-1) #abs to avoid negative log
-  c=0.74191-0.17459*log(m)-0.26526*(1/m)+0.0029985*m-0.000010943*m^2
-  w2=c+(seqa(k,1,length(w))-k)/(n-k)
-  w1=-c+(seqa(k,1,length(w))-k)/(n-k)
-  x<-seqa(k,1,length(w))
-  w1<-matrix(w1,length(w1),1)
-  w<-matrix(w,length(w),1)
-  w2<-matrix(w2,length(w2),1)
-  grange<-range(w1,w2)
-  par(mar = c(5,4,4,8))
-  plot(x,w,main="CUSUM of Squares Test",type = "l",ylim = grange,xlab ="",ylab = "Emperical fluctuation process",col="blue")
-  lines(x,w1,col="red")
-  lines(x,w2,col="red")
-  abline(h=0,lty=2)
-  legend(par("usr")[2],par("usr")[4],
-         xpd = TRUE ,
-         bty = "n",
-         c("CUSUM of squares","5% significance"),
-         lty = c(1, 1),
-         cex=0.6,
-         col=c("blue","red") )
-
-}
-
-cusum<-function(e,k,n){
-  w<-as.matrix(na.omit(e))
-  #n<-length(e)
-  w=cumsum(w/apply(w, 2, sd))
-  c=0.984
-  w2=seqa(c*sqrt(n-k),(2*c*sqrt(n-k))/length(w),length(w))
-  w1=seqa(-c*sqrt(n-k),(-2*c*sqrt(n-k))/length(w),length(w))
-  x<-seqa(k,1,length(w))
-  w1<-matrix(w1,length(w1),1)
-  w<-matrix(w,length(w),1)
-  w2<-matrix(w2,length(w2),1)
-  grange<-range(w1,w2)
-  par(mar = c(5,4,4,8))
-  plot(x,w,main="CUSUM Test",type = "l",ylim = grange,xlab = "",ylab = "Emperical fluctuation process",col="blue")
-  lines(x,w1,col="red")
-  lines(x,w2,col="red")
-  abline(h=0,lty=2)
-  legend(par("usr")[2],par("usr")[4],
-         xpd = TRUE ,
-         bty = "n",
-         c("CUSUM ","5% significance"),
-         lty = c(1, 1),
-         cex=0.6,
-         col=c("blue","red") )
-
-}
-
-seqa<-function(a,b,c){
-  #seq=(a:b:(a+b*(c-1)))';
-  se<-seq(a,(a+b*(c-1)),by=b)
-  return(t(se))
-}
-
-
-
-
-#' summary
-#'
-#' @param object is the object of the function
-#' @param ... not used
-#' @importFrom stats printCoefmat
-#' @export
-summary.nardl<-function(object,...)
-{
-
-  cat("==============================================================\n")
-  cat("\n Lag and lead selection:\n")
-  icres<-cbind(object$AK,object$SC,object$ll,object$R2)
-  colnames(icres)<-c("AIC","BIC","ll","R2")
-  print(icres)
-  cat("\n NARDL model:\n")
-  print(object$sel)
-  cat("---------------------------------\n")
-  cat("\n model diagnostic tests:\n----------\n")
-  cat(" JB test:\n","JB:",object$jbtest$statistic[[1]],"Pvalue",object$jbtest$p.value[[1]],"\n----------\n")
-  #cat(" LM test for serial correlation:\n","LM(",object$np,"):",object$lmtest$statistic[[1]],"Pvalue",object$lmtest$p.value[[1]],"\n----------\n")
-  cat(" LM test for serial correlation:\n","LM(",object$np,"):",object$lm2[1],"Pvalue",object$lm2[2],"\n----------\n")
-  cat(" ARCH test:\n","ARCH(",object$np,"):",object$arch$statistic[[1]],"Pvalue",object$arch$p.value[[1]],"\n----------\n")
-  cat("==============================================================\n")
-  cat("Asymmetric Cointegration test\n")
- # print( bounds.test(3,object$k,object$fstat))
-  pssbounds(case=object$case,obs=object$obs,fstat=object$fstat,k = object$k)
-  cat("==============================================================\n")
-  cat("\nLong-run coefficients\n")
-  printCoefmat(object$lres,has.Pvalue = TRUE,signif.stars = TRUE)
-  cat("==============================================================\n")
-  cat(" Long Run Asymmety test\n","F-stat:",object$tasym[2],"Pvalue:",object$pasym[2],"\n")
-  cat("==============================================================\n")
-
-}
 
 
 

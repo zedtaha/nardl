@@ -30,7 +30,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 1.70, 2.83, 1.97, 3.18, 2.54, 3.91, # 7
 											 1.66, 2.79, 1.91, 3.11, 2.45, 3.79, # 8
 											 1.63, 2.75, 1.86, 3.05, 2.34, 3.68, # 9
-											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = T) # 10
+											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = TRUE) # 10
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case I. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -45,7 +45,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -1.62, -3.90, -1.95, -4.23, -2.58, -4.88, # 7
 												 -1.62, -4.09, -1.95, -4.43, -2.58, -5.07, # 8
 												 -1.62, -4.26, -1.95, -4.61, -2.58, -5.25, # 9
-												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = T) # 10
+												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case II: Restricted intercept and no trend
@@ -59,7 +59,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.525, 3.560, 3.058, 4.223, 4.280, 5.840, # 4
 											 2.407, 3.517, 2.910, 4.193, 4.134, 5.761, # 5
 											 2.334, 3.515, 2.794, 4.148, 3.976, 5.691, # 6
-											 2.277, 3.498, 2.730, 4.163, 3.864, 5.694), ncol = 6, byrow = T) # 7
+											 2.277, 3.498, 2.730, 4.163, 3.864, 5.694), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case II."
 			}
@@ -75,7 +75,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.752, 3.994, 3.354, 4.774, 4.768, 6.670, # 4
 											 2.578, 3.858, 3.125, 4.608, 4.537, 6.370, # 5
 											 2.457, 3.797, 2.970, 4.499, 4.270, 6.211, # 6
-											 2.384, 3.728, 2.875, 4.445, 4.104, 6.151), ncol = 6, byrow = T) # 7
+											 2.384, 3.728, 2.875, 4.445, 4.104, 6.151), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case III. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -90,7 +90,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -2.57, -4.23, -2.86, -4.57, -3.43, -5.19, # 7
 												 -2.57, -4.40, -2.86, -4.72, -3.43, -5.37, # 8
 												 -2.57, -4.56, -2.86, -4.88, -3.42, -5.54, # 9
-												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = T)	# 10
+												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = TRUE)	# 10
 			}
 		}
 		# Case IV: Unrestricted intercept, restricted trend
@@ -104,7 +104,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 3.097, 4.118, 3.715, 4.878, 5.205, 6.640, # 4
 											 2.907, 4.010, 3.504, 4.743, 4.850, 6.473, # 5
 											 2.781, 3.941, 3.326, 4.653, 4.689, 6.358, # 6
-											 2.681, 3.887, 3.194, 4.604, 4.490, 6.328), ncol = 6, byrow = T) # 7
+											 2.681, 3.887, 3.194, 4.604, 4.490, 6.328), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case IV."
 			}
@@ -120,7 +120,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 3.430, 4.624, 4.154, 5.540, 5.856, 7.578, # 4
 											 3.157, 4.412, 3.818, 5.253, 5.347, 7.242, # 5
 											 2.977, 4.260, 3.576, 5.065, 5.046, 6.930, # 6
-											 2.483, 4.160, 3.394, 4.939, 4.779, 6.821), ncol = 6, byrow = T)	# 7
+											 2.483, 4.160, 3.394, 4.939, 4.779, 6.821), ncol = 6, byrow = TRUE)	# 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case V. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -135,7 +135,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -3.13, -4.53, -3.41, -4.85, -3.96, -5.49, # 7
 												 -3.13, -4.68, -3.41, -5.01, -3.96, -5.65, # 8
 												 -3.13, -4.82, -3.41, -5.15, -3.96, -5.79, # 9
-												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = T) # 10
+												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 	}
@@ -156,7 +156,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 1.70, 2.83, 1.97, 3.18, 2.54, 3.91, # 7
 											 1.66, 2.79, 1.91, 3.11, 2.45, 3.79, # 8
 											 1.63, 2.75, 1.86, 3.05, 2.34, 3.68, # 9
-											 11.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = T) # 10
+											 11.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = TRUE) # 10
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case I. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -171,7 +171,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -1.62, -3.90, -1.95, -4.23, -2.58, -4.88, # 7
 												 -1.62, -4.09, -1.95, -4.43, -2.58, -5.07, # 8
 												 -1.62, -4.26, -1.95, -4.61, -2.58, -5.25, # 9
-												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = T)	 # 10
+												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = TRUE)	 # 10
 			}
 		}
 		# Case II: restricted intercept, no trend
@@ -185,7 +185,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.460, 3.460, 2.947, 4.088, 4.093, 5.532, # 4
 											 2.331, 3.417, 2.804, 4.013, 3.900, 5.419, # 5
 											 2.254, 3.388, 2.685, 3.960, 3.713, 5.326, # 6
-											 2.196, 3.370, 2.597, 3.907, 3.599, 5.230), ncol = 6, byrow = T) # 7
+											 2.196, 3.370, 2.597, 3.907, 3.599, 5.230), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case II."
 			}
@@ -201,7 +201,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.696, 3.898, 3.276, 4.630, 4.590, 6.368, # 4
 											 2.508, 3.763, 3.037, 4.443, 4.257, 6.040, # 5
 											 2.387, 3.671, 2.864, 4.324, 4.016, 5.797, # 6
-											 2.300, 3.606, 2.753, 4.209, 3.841, 5.686), ncol = 6, byrow = T) # 7
+											 2.300, 3.606, 2.753, 4.209, 3.841, 5.686), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case III. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -216,7 +216,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -2.57, -4.23, -2.86, -4.57, -3.43, -5.19, # 7
 												 -2.57, -4.40, -2.86, -4.72, -3.43, -5.37, # 8
 												 -2.57, -4.56, -2.86, -4.88, -3.42, -5.54, # 9
-												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = T) # 10
+												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case IV: unrestricted intercept, restricted trend
@@ -230,7 +230,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 3.035, 3.997, 3.578, 4.668, 5.147, 6.617, # 4
 											 2.831, 3.879, 3.353, 4.500, 4.849, 6.511, # 5
 											 2.685, 3.785, 3.174, 4.383, 4.629, 5.698, # 6
-											 2.578, 3.710, 3.057, 4.319, 4.489, 5.064), ncol = 6, byrow = T)	 # 7
+											 2.578, 3.710, 3.057, 4.319, 4.489, 5.064), ncol = 6, byrow = TRUE)	 # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case IV."
 			}
@@ -246,7 +246,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 3.374, 4.512, 4.036, 5.304, 5.604, 7.172, # 4
 											 3.087, 4.277, 3.673, 5.002, 5.095, 6.770, # 5
 											 2.879, 4.114, 3.426, 4.790, 4.704, 6.537, # 6
-											 2.729, 3.985, 3.251, 4.640, 4.459, 6.206), ncol = 6, byrow = T) # 7
+											 2.729, 3.985, 3.251, 4.640, 4.459, 6.206), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case V. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -261,7 +261,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -3.13, -4.53, -3.41, -4.85, -3.96, -5.49, # 7
 												 -3.13, -4.68, -3.41, -5.01, -3.96, -5.65, # 8
 												 -3.13, -4.82, -3.41, -5.15, -3.96, -5.79, # 9
-												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = T) # 10
+												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 	}
@@ -282,7 +282,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 1.70, 2.83, 1.97, 3.18, 2.54, 3.91, # 7
 											 1.66, 2.79, 1.91, 3.11, 2.45, 3.79, # 8
 											 1.63, 2.75, 1.86, 3.05, 2.34, 3.68, # 9
-											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = T) # 10
+											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = TRUE) # 10
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case I. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -297,7 +297,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -1.62, -3.90, -1.95, -4.23, -2.58, -4.88, # 7
 												 -1.62, -4.09, -1.95, -4.43, -2.58, -5.07, # 8
 												 -1.62, -4.26, -1.95, -4.61, -2.58, -5.25, # 9
-												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = T) # 10
+												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case II: restricted intercept, no trend
@@ -311,7 +311,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.427, 3.395, 2.893, 4.000, 3.967, 5.455, # 4
 											 2.306, 3.353, 2.734, 3.920, 3.657, 5.256, # 5
 											 2.218, 3.314, 2.618, 3.863, 3.505, 5.121, # 6
-											 2.152, 3.296, 2.523, 3.829, 3.402, 5.031), ncol = 6, byrow = T) # 7
+											 2.152, 3.296, 2.523, 3.829, 3.402, 5.031), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case II."
 			}
@@ -327,7 +327,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.660, 3.838, 3.202, 4.544, 4.428, 6.250, # 4
 											 2.483, 3.708, 2.962, 4.338, 4.045, 5.898, # 5
 											 2.353, 3.599, 2.797, 4.211, 3.800, 5.643, # 6
-											 2.260, 3.534, 2.676, 4.130, 3.644, 5.464), ncol = 6, byrow = T) # 7
+											 2.260, 3.534, 2.676, 4.130, 3.644, 5.464), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case III. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -342,7 +342,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -2.57, -4.23, -2.86, -4.57, -3.43, -5.19, # 7
 												 -2.57, -4.40, -2.86, -4.72, -3.43, -5.37, # 8
 												 -2.57, -4.56, -2.86, -4.88, -3.42, -5.54, # 9
-												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = T) # 10
+												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case IV: unrestricted intercept, restricted trend
@@ -356,7 +356,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.985, 3.918, 3.512, 4.587, 4.763, 6.200, # 4
 											 2.781, 3.813, 3.257, 4.431, 4.427, 5.837, # 5
 											 2.634, 3.719, 3.070, 4.309, 4.154, 5.699, # 6
-											 2.517, 3.650, 2.933, 4.224, 3.971, 5.486), ncol = 6, byrow = T) # 7
+											 2.517, 3.650, 2.933, 4.224, 3.971, 5.486), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case IV."
 			}
@@ -372,7 +372,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 3.334, 4.438, 3.958, 5.226, 5.376, 7.092, # 4
 											 3.032, 4.213, 3.577, 4.923, 4.885, 6.550, # 5
 											 2.831, 4.040, 3.327, 4.700, 4.527, 6.263, # 6
-											 2.668, 3.920, 3.121, 4.564, 4.310, 5.965), ncol = 6, byrow = T) # 7
+											 2.668, 3.920, 3.121, 4.564, 4.310, 5.965), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case V. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -387,7 +387,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -3.13, -4.53, -3.41, -4.85, -3.96, -5.49, # 7
 												 -3.13, -4.68, -3.41, -5.01, -3.96, -5.65, # 8
 												 -3.13, -4.82, -3.41, -5.15, -3.96, -5.79, # 9
-												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = T) # 10
+												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 	}
@@ -408,7 +408,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 1.70, 2.83, 1.97, 3.18, 2.54, 3.91, # 7
 											 1.66, 2.79, 1.91, 3.11, 2.45, 3.79, # 8
 											 1.63, 2.75, 1.86, 3.05, 2.34, 3.68, # 9
-											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = T) # 10
+											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = TRUE) # 10
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case I. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -423,7 +423,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -1.62, -3.90, -1.95, -4.23, -2.58, -4.88, # 7
 												 -1.62, -4.09, -1.95, -4.43, -2.58, -5.07, # 8
 												 -1.62, -4.26, -1.95, -4.61, -2.58, -5.25, # 9
-												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = T) # 10
+												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case II: restricted intercept, no trend
@@ -437,7 +437,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.402, 3.345, 2.850, 3.905, 3.892, 5.173, # 4
 											 2.276, 3.297, 2.694, 3.829, 3.674, 5.019, # 5
 											 2.188, 3.254, 2.591, 3.766, 3.540, 4.931, # 6
-											 2.131, 3.223, 2.504, 3.723, 3.383, 4.832), ncol = 6, byrow = T) # 7
+											 2.131, 3.223, 2.504, 3.723, 3.383, 4.832), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case II."
 			}
@@ -453,7 +453,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.638, 3.772, 3.178, 4.450, 4.394, 5.914, # 4
 											 2.458, 3.647, 2.922, 4.268, 4.030, 5.598, # 5
 											 2.327, 3.541, 2.764, 4.123, 3.790, 5.411, # 6
-											 2.238, 3.461, 2.643, 4.004, 3.595, 5.225), ncol = 6, byrow = T) # 7
+											 2.238, 3.461, 2.643, 4.004, 3.595, 5.225), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case III. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -468,7 +468,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -2.57, -4.23, -2.86, -4.57, -3.43, -5.19, # 7
 												 -2.57, -4.40, -2.86, -4.72, -3.43, -5.37, # 8
 												 -2.57, -4.56, -2.86, -4.88, -3.42, -5.54, # 9
-												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = T) # 10
+												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case IV: unrestricted intercept, restricted trend
@@ -482,7 +482,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.950, 3.862, 3.470, 4.470, 4.628, 5.865, # 4
 											 2.750, 3.739, 3.211, 4.309, 4.251, 5.596, # 5
 											 2.606, 3.644, 3.025, 4.198, 3.998, 5.463, # 6
-											 2.484, 3.570, 2.899, 4.087, 3.829, 5.313), ncol = 6, byrow = T) # 7
+											 2.484, 3.570, 2.899, 4.087, 3.829, 5.313), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case IV."
 			}
@@ -498,7 +498,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 3.298, 4.378, 3.890, 5.104, 5.224, 6.696, # 4
 											 3.012, 4.147, 3.532, 4.800, 4.715, 6.293, # 5
 											 2.796, 3.970, 3.267, 4.584, 4.364, 6.006, # 6
-											 2.635, 3.838, 3.091, 4.413, 4.109, 5.785), ncol = 6, byrow = T) # 7
+											 2.635, 3.838, 3.091, 4.413, 4.109, 5.785), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case V. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -513,7 +513,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -3.13, -4.53, -3.41, -4.85, -3.96, -5.49, # 7
 												 -3.13, -4.68, -3.41, -5.01, -3.96, -5.65, # 8
 												 -3.13, -4.82, -3.41, -5.15, -3.96, -5.79, # 9
-												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = T) # 10
+												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 	}
@@ -534,7 +534,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 1.70, 2.83, 1.97, 3.18, 2.54, 3.91, # 7
 											 1.66, 2.79, 1.91, 3.11, 2.45, 3.79, # 8
 											 1.63, 2.75, 1.86, 3.05, 2.34, 3.68, # 9
-											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = T) # 10
+											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = TRUE) # 10
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case I. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -549,7 +549,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -1.62, -3.90, -1.95, -4.23, -2.58, -4.88, # 7
 												 -1.62, -4.09, -1.95, -4.43, -2.58, -5.07, # 8
 												 -1.62, -4.26, -1.95, -4.61, -2.58, -5.25, # 9
-												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = T) # 10
+												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case II: restricted intercept, no trend
@@ -563,7 +563,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.372, 3.320, 2.823, 3.872, 3.845, 5.150, # 4
 											 2.259, 3.264, 2.670, 3.781, 3.593, 4.981, # 5
 											 2.170, 3.220, 2.550, 3.708, 3.424, 4.880, # 6
-											 2.099, 3.181, 2.457, 3.650, 3.282, 4.730), ncol = 6, byrow = T) # 7
+											 2.099, 3.181, 2.457, 3.650, 3.282, 4.730), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case II."
 			}
@@ -579,7 +579,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.614, 3.746, 3.136, 4.416, 4.306, 5.874, # 4
 											 2.435, 3.600, 2.900, 4.218, 3.955, 5.583, # 5
 											 2.309, 3.507, 2.726, 4.057, 3.656, 5.331, # 6
-											 2.205, 3.421, 2.593, 3.941, 3.498, 5.149), ncol = 6, byrow = T) # 7
+											 2.205, 3.421, 2.593, 3.941, 3.498, 5.149), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case III. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -594,7 +594,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -2.57, -4.23, -2.86, -4.57, -3.43, -5.19, # 7
 												 -2.57, -4.40, -2.86, -4.72, -3.43, -5.37, # 8
 												 -2.57, -4.56, -2.86, -4.88, -3.42, -5.54, # 9
-												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = T) # 10
+												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case IV: unrestricted intercept, restricted trend
@@ -608,7 +608,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.905, 3.822, 3.383, 4.432, 4.557, 5.793, # 4
 											 2.703, 3.697, 3.149, 4.293, 4.214, 5.520, # 5
 											 2.550, 3.609, 2.975, 4.143, 3.983, 5.345, # 6
-											 2.440, 3.523, 2.832, 4.012, 3.762, 5.172), ncol = 6, byrow = T) # 7
+											 2.440, 3.523, 2.832, 4.012, 3.762, 5.172), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case IV."
 			}
@@ -624,7 +624,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 3.240, 4.350, 3.834, 5.064, 5.184, 6.684, # 4
 											 2.950, 4.110, 3.480, 4.782, 4.672, 6.232, # 5
 											 2.750, 3.944, 3.229, 4.536, 4.310, 5.881, # 6
-											 2.590, 3.789, 3.039, 4.339, 4.055, 5.640), ncol = 6, byrow = T) # 7
+											 2.590, 3.789, 3.039, 4.339, 4.055, 5.640), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case V. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -639,7 +639,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -3.13, -4.53, -3.41, -4.85, -3.96, -5.49, # 7
 												 -3.13, -4.68, -3.41, -5.01, -3.96, -5.65, # 8
 												 -3.13, -4.82, -3.41, -5.15, -3.96, -5.79, # 9
-												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = T) # 10
+												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 	}
@@ -660,7 +660,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 1.70, 2.83, 1.97, 3.18, 2.54, 3.91, # 7
 											 1.66, 2.79, 1.91, 3.11, 2.45, 3.79, # 8
 											 1.63, 2.75, 1.86, 3.05, 2.34, 3.68, # 9
-											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = T) # 10
+											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = TRUE) # 10
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case I. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -675,7 +675,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -1.62, -3.90, -1.95, -4.23, -2.58, -4.88, # 7
 												 -1.62, -4.09, -1.95, -4.43, -2.58, -5.07, # 8
 												 -1.62, -4.26, -1.95, -4.61, -2.58, -5.25, # 9
-												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = T) # 10
+												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case II: restricted intercept, no trend
@@ -689,7 +689,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.345, 3.280, 2.763, 3.813, 3.738, 4.947, # 4
 											 2.226, 3.241, 2.617, 3.743, 3.543, 4.839, # 5
 											 2.139, 3.204, 2.490, 3.658, 3.330, 4.708, # 6
-											 2.069, 3.148, 2.414, 3.608, 3.194, 4.562), ncol = 6, byrow = T) # 7
+											 2.069, 3.148, 2.414, 3.608, 3.194, 4.562), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case II."
 			}
@@ -705,7 +705,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.578, 3.710, 3.068, 4.334, 4.244, 5.726, # 4
 											 2.393, 3.583, 2.848, 4.160, 3.928, 5.408, # 5
 											 2.270, 3.486, 2.676, 3.999, 3.636, 5.169, # 6
-											 2.181, 3.398, 2.556, 3.904, 3.424, 4.989), ncol = 6, byrow = T) # 7
+											 2.181, 3.398, 2.556, 3.904, 3.424, 4.989), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case III. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -720,7 +720,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -2.57, -4.23, -2.86, -4.57, -3.43, -5.19, # 7
 												 -2.57, -4.40, -2.86, -4.72, -3.43, -5.37, # 8
 												 -2.57, -4.56, -2.86, -4.88, -3.42, -5.54, # 9
-												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = T) # 10
+												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case IV: unrestricted intercept, restricted trend
@@ -734,7 +734,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.868, 3.782, 3.358, 4.365, 4.455, 5.615, # 4
 											 2.674, 3.659, 3.131, 4.206, 4.111, 5.329, # 5
 											 2.538, 3.560, 2.946, 4.065, 3.870, 5.171, # 6
-											 2.420, 3.481, 2.791, 3.950, 3.643, 5.021), ncol = 6, byrow = T) # 7
+											 2.420, 3.481, 2.791, 3.950, 3.643, 5.021), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case IV."
 			}
@@ -750,7 +750,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 3.210, 4.294, 3.794, 4.986, 5.108, 6.494, # 4
 											 2.927, 4.068, 3.442, 4.690, 4.608, 5.977, # 5
 											 2.724, 3.893, 3.197, 4.460, 4.230, 5.713, # 6
-											 2.573, 3.760, 2.989, 4.271, 3.955, 5.474), ncol = 6, byrow = T) # 7
+											 2.573, 3.760, 2.989, 4.271, 3.955, 5.474), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case V. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -765,7 +765,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -3.13, -4.53, -3.41, -4.85, -3.96, -5.49, # 7
 												 -3.13, -4.68, -3.41, -5.01, -3.96, -5.65, # 8
 												 -3.13, -4.82, -3.41, -5.15, -3.96, -5.79, # 9
-												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = T) # 10
+												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 	}
@@ -786,7 +786,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 1.70, 2.83, 1.97, 3.18, 2.54, 3.91, # 7
 											 1.66, 2.79, 1.91, 3.11, 2.45, 3.79, # 8
 											 1.63, 2.75, 1.86, 3.05, 2.34, 3.68, # 9
-											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = T) # 10
+											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = TRUE) # 10
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case I. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -801,7 +801,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -1.62, -3.90, -1.95, -4.23, -2.58, -4.88, # 7
 												 -1.62, -4.09, -1.95, -4.43, -2.58, -5.07, # 8
 												 -1.62, -4.26, -1.95, -4.61, -2.58, -5.25, # 9
-												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = T) # 10
+												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case II: restricted intercept, no trend
@@ -815,7 +815,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.323, 3.273, 2.743, 3.792, 3.710, 4.965, # 4
 											 2.204, 3.210, 2.589, 3.683, 3.451, 4.764, # 5
 											 2.114, 3.153, 2.456, 3.598, 3.293, 4.615, # 6
-											 2.044, 3.104, 2.373, 3.540, 3.129, 4.507), ncol = 6, byrow = T) # 7
+											 2.044, 3.104, 2.373, 3.540, 3.129, 4.507), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case II."
 			}
@@ -831,7 +831,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.568, 3.712, 3.062, 4.314, 4.176, 5.676, # 4
 											 2.385, 3.565, 2.817, 4.097, 3.783, 5.338, # 5
 											 2.253, 3.436, 2.643, 3.939, 3.531, 5.081, # 6
-											 2.155, 3.353, 2.513, 3.823, 3.346, 4.895), ncol = 6, byrow = T) # 7
+											 2.155, 3.353, 2.513, 3.823, 3.346, 4.895), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case III. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -846,7 +846,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -2.57, -4.23, -2.86, -4.57, -3.43, -5.19, # 7
 												 -2.57, -4.40, -2.86, -4.72, -3.43, -5.37, # 8
 												 -2.57, -4.56, -2.86, -4.88, -3.42, -5.54, # 9
-												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = T) # 10
+												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case IV: unrestricted intercept, restricted trend
@@ -860,7 +860,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.852, 3.773, 3.323, 4.333, 4.412, 5.545, # 4
 											 2.653, 3.637, 3.086, 4.154, 4.013, 5.269, # 5
 											 2.510, 3.519, 2.900, 3.999, 3.775, 5.086, # 6
-											 2.392, 3.444, 2.756, 3.892, 3.584, 4.922), ncol = 6, byrow = T) # 7
+											 2.392, 3.444, 2.756, 3.892, 3.584, 4.922), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case IV."
 			}
@@ -876,7 +876,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 3.200, 4.310, 3.772, 4.956, 5.066, 6.394, # 4
 											 2.912, 4.047, 3.407, 4.632, 4.505, 5.920, # 5
 											 2.709, 3.856, 3.137, 4.393, 4.117, 5.597, # 6
-											 2.551, 3.716, 2.956, 4.230, 3.870, 5.338), ncol = 6, byrow = T) # 7
+											 2.551, 3.716, 2.956, 4.230, 3.870, 5.338), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case V. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -891,7 +891,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -3.13, -4.53, -3.41, -4.85, -3.96, -5.49, # 7
 												 -3.13, -4.68, -3.41, -5.01, -3.96, -5.65, # 8
 												 -3.13, -4.82, -3.41, -5.15, -3.96, -5.79, # 9
-												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = T) # 10
+												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 	}
@@ -912,7 +912,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 1.70, 2.83, 1.97, 3.18, 2.54, 3.91, # 7
 											 1.66, 2.79, 1.91, 3.11, 2.45, 3.79, # 8
 											 1.63, 2.75, 1.86, 3.05, 2.34, 3.68, # 9
-											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = T) # 10
+											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = TRUE) # 10
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case I. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -927,7 +927,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -1.62, -3.90, -1.95, -4.23, -2.58, -4.88, # 7
 												 -1.62, -4.09, -1.95, -4.43, -2.58, -5.07, # 8
 												 -1.62, -4.26, -1.95, -4.61, -2.58, -5.25, # 9
-												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = T) # 10
+												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case II: restricted intercept, no trend
@@ -941,7 +941,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.335, 3.252, 2.750, 3.755, 3.725, 4.940, # 4
 											 2.209, 3.201, 2.596, 3.677, 3.430, 4.721, # 5
 											 2.120, 3.145, 2.473, 3.583, 3.225, 4.571, # 6
-											 2.043, 3.094, 2.373, 3.519, 3.092, 4.478), ncol = 6, byrow = T) # 7
+											 2.043, 3.094, 2.373, 3.519, 3.092, 4.478), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case II."
 			}
@@ -957,7 +957,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.574, 3.682, 3.068, 4.274, 4.188, 5.694, # 4
 											 2.397, 3.543, 2.835, 4.090, 3.783, 5.300, # 5
 											 2.256, 3.430, 2.647, 3.921, 3.501, 5.051, # 6
-											 2.156, 3.334, 2.525, 3.808, 3.310, 4.871), ncol = 6, byrow = T) # 7
+											 2.156, 3.334, 2.525, 3.808, 3.310, 4.871), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case III. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -972,7 +972,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -2.57, -4.23, -2.86, -4.57, -3.43, -5.19, # 7
 												 -2.57, -4.40, -2.86, -4.72, -3.43, -5.37, # 8
 												 -2.57, -4.56, -2.86, -4.88, -3.42, -5.54, # 9
-												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = T) # 10
+												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case IV: unrestricted intercept, restricted trend
@@ -986,7 +986,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.848, 3.743, 3.300, 4.280, 4.347, 5.552, # 4
 											 2.647, 3.603, 3.063, 4.123, 4.020, 5.263, # 5
 											 2.499, 3.490, 2.880, 3.978, 3.758, 5.040, # 6
-											 2.379, 3.406, 2.730, 3.879, 3.557, 4.902), ncol = 6, byrow = T) # 7
+											 2.379, 3.406, 2.730, 3.879, 3.557, 4.902), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case IV."
 			}
@@ -1002,7 +1002,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 3.196, 4.262, 3.732, 4.920, 4.974, 6.378, # 4
 											 2.897, 4.022, 3.372, 4.613, 4.482, 5.923, # 5
 											 2.690, 3.830, 3.137, 4.363, 4.111, 5.586, # 6
-											 2.531, 3.685, 2.924, 4.206, 3.835, 5.339), ncol = 6, byrow = T) # 7
+											 2.531, 3.685, 2.924, 4.206, 3.835, 5.339), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case V. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -1017,7 +1017,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -3.13, -4.53, -3.41, -4.85, -3.96, -5.49, # 7
 												 -3.13, -4.68, -3.41, -5.01, -3.96, -5.65, # 8
 												 -3.13, -4.82, -3.41, -5.15, -3.96, -5.79, # 9
-												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = T) # 10
+												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 	}
@@ -1038,7 +1038,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 1.70, 2.83, 1.97, 3.18, 2.54, 3.91, # 7
 											 1.66, 2.79, 1.91, 3.11, 2.45, 3.79, # 8
 											 1.63, 2.75, 1.86, 3.05, 2.34, 3.68, # 9
-											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = T) # 10
+											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = TRUE) # 10
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case I. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -1053,7 +1053,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -1.62, -3.90, -1.95, -4.23, -2.58, -4.88, # 7
 												 -1.62, -4.09, -1.95, -4.43, -2.58, -5.07, # 8
 												 -1.62, -4.26, -1.95, -4.61, -2.58, -5.25, # 9
-												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = T) # 10
+												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case II: restricted intercept, no trend
@@ -1067,7 +1067,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.320, 3.232, 2.725, 3.718, 3.608, 4.860, # 4
 											 2.193, 3.161, 2.564, 3.650, 3.373, 4.717, # 5
 											 2.100, 3.121, 2.451, 3.559, 3.180, 4.596, # 6
-											 2.024, 3.079, 2.351, 3.498, 3.034, 4.426), ncol = 6, byrow = T) # 7
+											 2.024, 3.079, 2.351, 3.498, 3.034, 4.426), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case II."
 			}
@@ -1083,7 +1083,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.552, 3.648, 3.022, 4.256, 4.098, 5.570, # 4
 											 2.363, 3.510, 2.788, 4.073, 3.747, 5.285, # 5
 											 2.233, 3.407, 2.629, 3.906, 3.436, 5.044, # 6
-											 2.138, 3.325, 2.494, 3.786, 3.261, 4.821), ncol = 6, byrow = T) # 7
+											 2.138, 3.325, 2.494, 3.786, 3.261, 4.821), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case III. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -1098,7 +1098,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -2.57, -4.23, -2.86, -4.57, -3.43, -5.19, # 7
 												 -2.57, -4.40, -2.86, -4.72, -3.43, -5.37, # 8
 												 -2.57, -4.56, -2.86, -4.88, -3.42, -5.54, # 9
-												 -2.57, -4.69, 2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = T) # 10
+												 -2.57, -4.69, 2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case IV: unrestricted intercept, restricted trend
@@ -1112,7 +1112,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.832, 3.738, 3.272, 4.272, 4.293, 5.460, # 4
 											 2.631, 3.589, 3.043, 4.100, 3.966, 5.234, # 5
 											 2.485, 3.473, 2.860, 3.951, 3.720, 5.004, # 6
-											 2.363, 3.394, 2.711, 3.842, 3.509, 4.808), ncol = 6, byrow = T) # 7
+											 2.363, 3.394, 2.711, 3.842, 3.509, 4.808), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case IV."
 			}
@@ -1128,7 +1128,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 3.182, 4.258, 3.720, 4.904, 4.922, 6.328, # 4
 											 2.893, 4.008, 3.368, 4.590, 4.428, 5.898, # 5
 											 2.683, 3.807, 3.107, 4.343, 4.070, 5.534, # 6
-											 2.519, 3.669, 2.913, 4.168, 3.774, 5.248), ncol = 6, byrow = T) # 7
+											 2.519, 3.669, 2.913, 4.168, 3.774, 5.248), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case V. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -1143,7 +1143,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -3.13, -4.53, -3.41, -4.85, -3.96, -5.49, # 7
 												 -3.13, -4.68, -3.41, -5.01, -3.96, -5.65, # 8
 												 -3.13, -4.82, -3.41, -5.15, -3.96, -5.79, # 9
-												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = T) # 10
+												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 	}
@@ -1164,7 +1164,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 1.70, 2.83, 1.97, 3.18, 2.54, 3.91, # 7
 											 1.66, 2.79, 1.91, 3.11, 2.45, 3.79, # 8
 											 1.63, 2.75, 1.86, 3.05, 2.34, 3.68, # 9
-											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = T) # 10
+											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = TRUE) # 10
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case I. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -1179,7 +1179,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -1.62, -3.90, -1.95, -4.23, -2.58, -4.88, # 7
 												 -1.62, -4.09, -1.95, -4.43, -2.58, -5.07, # 8
 												 -1.62, -4.26, -1.95, -4.61, -2.58, -5.25, # 9
-												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = T) # 10
+												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case II: restricted intercept, no trend
@@ -1193,7 +1193,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.313, 3.228, 2.725, 3.718, 3.687, 4.842, # 4
 											 2.196, 3.166, 2.574, 3.641, 3.427, 4.620, # 5
 											 2.103, 3.111, 2.449, 3.550, 3.219, 4.526, # 6
-											 2.023, 3.068, 2.360, 3.478, 3.057, 4.413), ncol = 6, byrow = T) # 7
+											 2.023, 3.068, 2.360, 3.478, 3.057, 4.413), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case II."
 			}
@@ -1209,7 +1209,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.558, 3.654, 3.042, 4.244, 4.168, 5.548, # 4
 											 2.380, 3.515, 2.802, 4.065, 3.772, 5.213, # 5
 											 2.244, 3.397, 2.637, 3.900, 3.496, 4.966, # 6
-											 2.134, 3.313, 2.503, 3.768, 3.266, 4.801), ncol = 6, byrow = T) # 7
+											 2.134, 3.313, 2.503, 3.768, 3.266, 4.801), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case III. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -1224,7 +1224,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -2.57, -4.23, -2.86, -4.57, -3.43, -5.19, # 7
 												 -2.57, -4.40, -2.86, -4.72, -3.43, -5.37, # 8
 												 -2.57, -4.56, -2.86, -4.88, -3.42, -5.54, # 9
-												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = T) # 10
+												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case IV: unrestricted intercept, restricted trend
@@ -1238,7 +1238,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.832, 3.717, 3.298, 4.260, 4.300, 5.377, # 4
 											 2.636, 3.579, 3.054, 4.079, 3.984, 5.153, # 5
 											 2.486, 3.469, 2.874, 3.914, 3.728, 4.954, # 6
-											 2.372, 3.370, 2.718, 3.807, 3.511, 4.789), ncol = 6, byrow = T) # 7
+											 2.372, 3.370, 2.718, 3.807, 3.511, 4.789), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case IV."
 			}
@@ -1254,7 +1254,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 3.182, 4.248, 3.724, 4.880, 4.932, 6.224, # 4
 											 2.890, 3.993, 3.382, 4.567, 4.393, 5.788, # 5
 											 2.681, 3.800, 3.111, 4.310, 4.060, 5.459, # 6
-											 2.530, 3.648, 2.915, 4.143, 3.768, 5.229), ncol = 6, byrow = T) # 7
+											 2.530, 3.648, 2.915, 4.143, 3.768, 5.229), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case V. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -1269,7 +1269,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -3.13, -4.53, -3.41, -4.85, -3.96, -5.49, # 7
 												 -3.13, -4.68, -3.41, -5.01, -3.96, -5.65, # 8
 												 -3.13, -4.82, -3.41, -5.15, -3.96, -5.79, # 9
-												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = T) # 10
+												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 	}
@@ -1290,7 +1290,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 1.70, 2.83, 1.97, 3.18, 2.54, 3.91, # 7
 											 1.66, 2.79, 1.91, 3.11, 2.45, 3.79, # 8
 											 1.63, 2.75, 1.86, 3.05, 2.34, 3.68, # 9
-											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = T) # 10
+											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = TRUE) # 10
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case I. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -1305,7 +1305,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -1.62, -3.90, -1.95, -4.23, -2.58, -4.88, # 7
 												 -1.62, -4.09, -1.95, -4.43, -2.58, -5.07, # 8
 												 -1.62, -4.26, -1.95, -4.61, -2.58, -5.25, # 9
-												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = T) # 10
+												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case II: restricted intercept, no trend
@@ -1319,7 +1319,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.303, 3.220, 2.688, 3.698, 3.602, 4.787, # 4
 											 2.303, 3.154, 2.550, 3.606, 3.351, 4.587, # 5
 											 2.088, 3.103, 2.431, 3.518, 3.173, 4.485, # 6
-											 2.017, 3.052, 2.336, 3.458, 3.021, 4.350), ncol = 6, byrow = T) # 7
+											 2.017, 3.052, 2.336, 3.458, 3.021, 4.350), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case II."
 			}
@@ -1335,7 +1335,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.548, 3.644, 3.010, 4.216, 4.096, 5.512, # 4
 											 2.355, 3.500, 2.787, 4.015, 3.725, 5.163, # 5
 											 2.236, 3.381, 2.627, 3.864, 3.457, 4.943, # 6
-											 2.129, 3.289, 2.476, 3.746, 3.233, 4.760), ncol = 6, byrow = T) # 7
+											 2.129, 3.289, 2.476, 3.746, 3.233, 4.760), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case III. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -1350,7 +1350,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -2.57, -4.23, -2.86, -4.57, -3.43, -5.19, # 7
 												 -2.57, -4.40, -2.86, -4.72, -3.43, -5.37, # 8
 												 -2.57, -4.56, -2.86, -4.88, -3.42, -5.54, # 9
-												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = T) # 10
+												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case IV: unrestricted intercept, restricted trend
@@ -1364,7 +1364,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.303, 3.220, 2.688, 3.698, 3.602, 4.787, # 4
 											 2.180, 3.154, 2.550, 3.606, 3.351, 4.587, # 5
 											 2.088, 3.103, 2.431, 3.518, 3.173, 4.485, # 6
-											 2.017, 3.052, 2.336, 3.458, 3.021, 4.350), ncol = 6, byrow = T) # 7
+											 2.017, 3.052, 2.336, 3.458, 3.021, 4.350), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case IV."
 			}
@@ -1380,7 +1380,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 3.160, 4.230, 3.678, 4.840, 4.890, 6.164, # 4
 											 2.867, 3.975, 3.335, 4.535, 4.375, 5.703, # 5
 											 2.657, 3.776, 3.077, 4.284, 4.000, 5.397, # 6
-											 2.504, 3.631, 2.885, 4.111, 3.728, 5.160), ncol = 6, byrow = T) # 7
+											 2.504, 3.631, 2.885, 4.111, 3.728, 5.160), ncol = 6, byrow = TRUE) # 7
 			if (!is.null(tstat)) {
 				tnote <- "Small-sample critical values not provided for Case V. Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -1395,7 +1395,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -3.13, -4.53, -3.41, -4.85, -3.96, -5.49, # 7
 												 -3.13, -4.68, -3.41, -5.01, -3.96, -5.65, # 8
 												 -3.13, -4.82, -3.41, -5.15, -3.96, -5.79, # 9
-												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = T) # 10
+												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 	}
@@ -1416,7 +1416,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 1.70, 2.83, 1.97, 3.18, 2.54, 3.91, # 7
 											 1.66, 2.79, 1.91, 3.11, 2.45, 3.79, # 8
 											 1.63, 2.75, 1.86, 3.05, 2.34, 3.68, # 9
-											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = T) # 10
+											 1.60, 2.72, 1.82, 2.99, 2.26, 3.60), ncol = 6, byrow = TRUE) # 10
 			if (!is.null(tstat)) {
 				tnote <- "Asymptotic critical values used."
 				#		0.10         0.05		   0.010
@@ -1431,7 +1431,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -1.62, -3.90, -1.95, -4.23, -2.58, -4.88, # 7
 												 -1.62, -4.09, -1.95, -4.43, -2.58, -5.07, # 8
 												 -1.62, -4.26, -1.95, -4.61, -2.58, -5.25, # 9
-												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = T) # 10
+												 -1.62, -4.42, -1.95, -4.76, -2.58, -5.44), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case II: restricted intercept, no trend
@@ -1448,7 +1448,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 1.92, 2.89, 2.17, 3.21, 2.73, 3.90, # 7
 											 1.85, 2.85, 2.11, 3.15, 2.62, 3.77, # 8
 											 1.80, 2.80, 2.04, 3.08, 2.50, 3.68, # 9
-											 1.76, 2.77, 1.98, 3.04, 2.41, 3.61), ncol = 6, byrow = T) # 10
+											 1.76, 2.77, 1.98, 3.04, 2.41, 3.61), ncol = 6, byrow = TRUE) # 10
 			fnote <- "Asymptotic critical values used."
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case II."
@@ -1468,7 +1468,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.03, 3.13, 2.32, 3.50, 2.96, 4.26, # 7
 											 1.95, 3.06, 2.22, 3.39, 2.79, 4.10, # 8
 											 1.88, 2.99, 2.14, 3.30, 2.65, 3.97, # 9
-											 1.83, 2.94, 2.06, 3.24, 2.54, 3.86), ncol = 6, byrow = T) # 10
+											 1.83, 2.94, 2.06, 3.24, 2.54, 3.86), ncol = 6, byrow = TRUE) # 10
 			fnote <- "Asymptotic critical values used."
 			if (!is.null(tstat)) {
 				tnote <- "Asymptotic critical values used."
@@ -1484,7 +1484,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -2.57, -4.23, -2.86, -4.57, -3.43, -5.19, # 7
 												 -2.57, -4.40, -2.86, -4.72, -3.43, -5.37, # 8
 												 -2.57, -4.56, -2.86, -4.88, -3.42, -5.54, # 9
-												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = T) # 10
+												 -2.57, -4.69, -2.86, -5.03, -3.43, -5.68), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 		# Case IV: unrestricted intercept, restricted trend
@@ -1501,7 +1501,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.22, 3.17, 2.50, 3.50, 3.07, 4.23, # 7
 											 2.13, 3.09, 2.38, 3.41, 2.93, 4.06, # 8
 											 2.05, 3.02, 2.30, 3.33, 2.79, 3.93, # 9
-											 1.98, 2.97, 2.21, 3.25, 2.68, 3.84), ncol = 6, byrow = T) # 10
+											 1.98, 2.97, 2.21, 3.25, 2.68, 3.84), ncol = 6, byrow = TRUE) # 10
 			fnote <- "Asymptotic critical values used."
 			if (!is.null(tstat)) {
 				tnote <- "Critical values do not currently exist for Case IV."
@@ -1521,7 +1521,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 											 2.38, 3.45, 2.69, 3.83, 3.34, 4.63, # 7
 											 2.26, 3.34, 2.55, 3.68, 3.15, 4.43, # 8
 											 2.16, 3.24, 2.43, 3.56, 2.97, 4.24, # 9
-											 2.07, 3.16, 2.33, 3.46, 2.84, 4.10), ncol = 6, byrow = T) # 10
+											 2.07, 3.16, 2.33, 3.46, 2.84, 4.10), ncol = 6, byrow = TRUE) # 10
 			fnote <- "Asymptotic critical values used."
 			if (!is.null(tstat)) {
 				tnote <- "Asymptotic critical values used."
@@ -1537,7 +1537,7 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 												 -3.13, -4.53, -3.41, -4.85, -3.96, -5.49, # 7
 												 -3.13, -4.68, -3.41, -5.01, -3.96, -5.65, # 8
 												 -3.13, -4.82, -3.41, -5.15, -3.96, -5.79, # 9
-												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = T) # 10
+												 -3.13, -4.96, -3.41, -5.29, -3.96, -5.94), ncol = 6, byrow = TRUE) # 10
 			}
 		}
 	}
