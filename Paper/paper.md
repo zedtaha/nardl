@@ -56,6 +56,10 @@ reg<-nardl(food~inf,p=4,q=4,fod,ic="aic",maxlags = FALSE,graph = TRUE)
 summary(reg)
 ```
 
+# Cointegration bounds test
+```{r}
+pssbounds(case=reg$case,fstat=reg$fstat,obs=reg$obs,k=reg$k)
+```
 # Dynamic multipliers plot
 ```{r}
 ############################
