@@ -1,7 +1,7 @@
 ---
 output: github_document
 ---
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1196447.svg)](https://doi.org/10.5281/zenodo.1196447)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1221245.svg)](https://doi.org/10.5281/zenodo.1221245)
 [![](http://www.r-pkg.org/badges/version/nardl)]()
 [![](http://cranlogs.r-pkg.org/badges/nardl)](http://cran.rstudio.com/web/packages/nardl/index.html)
 # nardl
