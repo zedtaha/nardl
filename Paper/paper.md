@@ -73,7 +73,7 @@ nardl is GPL-3 licensed and can be retrieved from GitHub [Repository](https://gi
 
 [nardl CRAN](https://cran.r-project.org/web/packages/nardl/index.html)
 
-[Archive](https://zenodo.org/record/1196447#.WqahNOzwbIU)
+[Archive](https://zenodo.org/record/1221245#.WtidtS7wbIU)
 
 # References #
 
