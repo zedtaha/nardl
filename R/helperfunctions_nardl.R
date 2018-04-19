@@ -62,7 +62,20 @@ lagm <- function(m, nLags) {
 }
 
 #-------------------------------------------------------------------------------
-# Function ArchTest
+#' ARCH test
+#'
+#'Computes the Lagrange multiplier test for conditional heteroscedasticity of Engle (1982), as described by Tsay (2005, pp. 101-102).
+#'
+#'@param x numeric vector
+#'@param lags positive integer number of lags
+#'@param demean logical: If TRUE, remove the mean before computing the test statistic.
+#'@importFrom stats pchisq embed lm
+#'@examples
+#'
+#'reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
+#'arch<-ArchTest(reg$selresidu,reg$np)
+#'
+#'@export
 
 ArchTest <- function (x, lags=12, demean = FALSE)
 {
@@ -90,7 +103,22 @@ ArchTest <- function (x, lags=12, demean = FALSE)
 
 
 #-------------------------------------------------------------------------------
-# Function bp2
+#' LM test for serial correlation
+#'
+#'
+#'@param object fitted lm model
+#'@param nlags positive integer number of lags
+#'@param fill starting values for the lagged residuals in the auxiliary regression. By default 0.
+#'@param type Fisher or Chisquare statistics
+#'@importFrom stats lm pchisq
+#'@importFrom gtools na.replace
+#'@examples
+#'
+#'reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
+#'lm2<-bp2(reg$fit,reg$np,fill=0,type="F")
+#'
+#'@export
+
 bp2<-function(object,nlags,fill=NULL,type=c("F","Chi2")){
   e<-as.matrix(object$residuals)
   n<-nrow(e)

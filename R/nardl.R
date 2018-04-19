@@ -15,7 +15,6 @@
 #'@importFrom gtools na.replace
 #'@importFrom utils head
 #'@import Formula
-#'@import matlab
 #'@examples
 #'
 #'############################################
@@ -264,7 +263,7 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
   vcc<-vc[2:nrow(vc),2:ncol(vc)]
   nsel<-length(sel$coefficients[,1])
   fb1<-lvars/coeff[[2]]^2
-  fb2<-(-coeff[[2]])*matlab::eye(nrow(as.matrix(fb1)))
+  fb2<-(-coeff[[2]])*diag(nrow(as.matrix(fb1)))
   fb<-cbind(as.matrix(fb1),fb2)
   lrse<-sqrt(diag(fb%*%vcc%*%t(fb)))
   lrt<-coof/lrse
@@ -306,7 +305,7 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
        k=k,case=case,lvars=lvars,selresidu=residu,
        tasym=tasym,pasym=pasym,jbtest=jbtest,arch=arch,
        np=np,rece=rece,obs=obs,AK=AK,R2=R2,SC=SC,ll=ll,vcc=vcc,fb=fb,
-       fb1=fb1,fb2=fb2,lrse=lrse,lrt=lrt,lrpv=lrpv,lres=lres,lm2=lm2)#,ww=ww)#,lmtest=lmtest)
+       fb1=fb1,fb2=fb2,lrse=lrse,lrt=lrt,lrpv=lrpv,lres=lres,lm2=lm2)
 
  class(out) <- "nardl"
  # Return results.

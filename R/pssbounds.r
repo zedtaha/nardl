@@ -1,3 +1,49 @@
+#' pssbounds
+#'
+#' display the necessary critical values to conduct the
+#' Pesaran, Shin and Smith 2001 bounds test for cointegration.
+#' See \url{http://andyphilips.github.io/pssbounds/}.
+#'
+#' @param obs number of observations
+#' @param fstat value of the F-statistic
+#' @param tstat value of the t-statistic
+#' @param case case number
+#' @param k number of regressors appearing in lag levels
+#'
+#' @details pssbounds is a module to display the necessary critical values to conduct the Pesaran, Shin and Smith (2001) bounds test for cointegration. Critical values using the F-test are the default; users can also include the critical values of the t-test with the tstat parameter.
+#'
+#'
+#' @details As discussed in Philips (2016), the upper and lower bounds of the cointegration test are non-standard, and depend on the number of observations, the number of regressors appearing in levels, and the restrictions (if any) placed on the intercept and trend. Asymptotic critical values are provided by Pesaran, Shin, and Smith (2001), and small-sample critical values by Narayan (2005). The following five cases are possible: I (no intercept, no trend), II (restricted intercept, no trend), III (unrestricted intercept, no trend), IV (unrestricted intercept, restricted trend), V (unrestricted intercept, unrestricted trend). See Pesaran, Shin and Smith (2001) for more details; Case III is the most common.
+#'
+#'
+#' @details More details are available at \url{http://andyphilips.github.io/pssbounds/}.
+#'
+#'
+#' @return None
+#'
+#' @author Soren Jordan, \email{sorenjordanpols@@gmail.com}, \url{sorenjordan.com}
+#' @author Andrew Q Philips, \email{aphilips@@pols.tamu.edu}, \url{people.tamu.edu/~aphilips/}
+#'
+#' @references If you use pssbounds, please cite:
+#' @references Jordan, Soren and Andrew Q. Philips. "pss: Perform bounds test for cointegration and perform dynamic simulations."
+#' @references and
+#' @references Philips, Andrew Q. "Have your cake and eat it too? Cointegration and dynamic inference from autoregressive distributed lag models" Working Paper.
+#'
+#'
+#' @references Narayan, Paresh Kumar. 2005. "The Saving and Investment Nexus for China: Evidence from Cointegration Tests." Applied Economics 37(17):1979-1990.
+#' @references Pesaran, M Hashem, Yongcheol Shin and Richard J Smith. 2001. "Bounds testing approaches to the analysis of level relationships." Journal of Applied Econometrics 16(3):289-326.
+#'
+#'
+#' @keywords bounds test, cointegration, ARDL
+#'
+#' @examples
+#' reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
+#' pssbounds(case=reg$case,fstat=reg$fstat,obs=reg$obs,k=reg$k)
+#' # F-stat concludes I(1) and cointegrating, t-stat concludes I(0).
+#'
+#'
+#' @export
+#'
 
 pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 	cases <- seq(1, 5, 1)
@@ -1645,20 +1691,20 @@ pssbounds <- function(obs, fstat, tstat = NULL, case, k) {
 			"------------------------------------------------------", "\n",
 			if(!is.null(fnote)) {paste("F-statistic note: ", fnote, sep = "")}, "\n",
 			if(!is.null(tnote)) {paste("t-statistic note: ", tnote, sep = "")}, "\n")
-	if(toutput != "") {
-		structure(list(k = k, obs = obs, fstat = fstat, tstat = tstat, case = case,
-									 ftest.I0.p10 = f_10_0, ftest.I1.p10 = f_10_1,
-									 ftest.I0.p05 = f_05_0, ftest.I1.p05 = f_05_1,
-									 ftest.I0.p01 = f_01_0, ftest.I1.p01 = f_01_1,
-									 ttest.I1.p10 = t_10_1, ttest.I0.p10 = t_10_0,
-									 ttest.I1.p05 = t_05_1, ttest.I0.p05 = t_05_0,
-									 ttest.I1.p01 = t_01_1, ttest.I0.p01 = t_01_0))
-	}
-	else {
-		structure(list(k = k, obs = obs, fstat = fstat, tstat = tstat, case = case,
-									 ftest.I0.p10 = f_10_0, ftest.I1.p10 = f_10_1,
-									 ftest.I0.p05 = f_05_0, ftest.I1.p05 = f_05_1,
-									 ftest.I0.p01 = f_01_0, ftest.I1.p01 = f_01_1))
-	}
+	#if(toutput != "") {
+		#structure(list(k = k, obs = obs, fstat = fstat, tstat = tstat, case = case,
+									# ftest.I0.p10 = f_10_0, ftest.I1.p10 = f_10_1,
+									# ftest.I0.p05 = f_05_0, ftest.I1.p05 = f_05_1,
+									# ftest.I0.p01 = f_01_0, ftest.I1.p01 = f_01_1,
+									# ttest.I1.p10 = t_10_1, ttest.I0.p10 = t_10_0,
+									# ttest.I1.p05 = t_05_1, ttest.I0.p05 = t_05_0,
+									# ttest.I1.p01 = t_01_1, ttest.I0.p01 = t_01_0))
+	#}
+	#else {
+		#structure(list(k = k, obs = obs, fstat = fstat, tstat = tstat, case = case,
+							#		 ftest.I0.p10 = f_10_0, ftest.I1.p10 = f_10_1,
+							#		 ftest.I0.p05 = f_05_0, ftest.I1.p05 = f_05_1,
+							#		 ftest.I0.p01 = f_01_0, ftest.I1.p01 = f_01_1))
+#	}
 }
 

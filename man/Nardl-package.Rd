@@ -12,8 +12,8 @@ Computes the nonlinear cointegrating autoregressive distributed lag model with p
 \tabular{ll}{
 Package: \tab Nardl\cr
 Type: \tab Package\cr
-Version: \tab 0.1.3\cr
-Date: \tab 2018-03-04\cr
+Version: \tab 0.1.4\cr
+Date: \tab 2018-04-17\cr
 License: \tab GPL-3\cr
 }
 In this package, we apply the ordinary least squares method to estimate the cointegrating nonlinear ARDL (NARDL) model in which short and long-run nonlinearities are introduced via positive and negative partial sum decompositions of the explanatory variables.Besides, we provide the CUSUM, CUSUMSQ model stability tests, model selection via aic, bic and rsqaured criteria and the dynamic multipliers plot.
