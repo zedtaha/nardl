@@ -3,7 +3,7 @@ mplier<-function(alpha,beta,varphi,vpi,l,h,k){
   # k number of independent variables
   # h is the horizon over which multipliers will be computed
   # l max(p,q)
-  vphi<-matlab::zeros(1,l)
+  vphi<-matrix(c(0),1,l)
   vphi[1] = 1 + alpha + varphi[1]
   i=2
   while(i<=l){
@@ -13,7 +13,7 @@ mplier<-function(alpha,beta,varphi,vpi,l,h,k){
 
   vphi[l] = -varphi[l-1]
 
-  mtheta = matlab::zeros(l+1,k)
+  mtheta = matrix(c(0),l+1,k)
   mtheta[1,] = vpi[1]
   mtheta[2:3,] = vpi[2] - vpi[1] + beta
   i=3
@@ -22,7 +22,7 @@ mplier<-function(alpha,beta,varphi,vpi,l,h,k){
     i=i+1
   }
   mtheta[l+1,] = -vpi[l]
-  mpsi =matlab::zeros(h,k)
+  mpsi =matrix(c(0),h,k)
   #mpsi<-NULL
   mpsi[1,] = mtheta[1,]
   i=1
@@ -52,7 +52,6 @@ mplier<-function(alpha,beta,varphi,vpi,l,h,k){
 #'@param h is the horizon over which multipliers will be computed
 #'@importFrom stats lm AIC BIC as.formula model.frame model.matrix model.response na.omit sd update vcov embed resid coef
 #'@importFrom graphics abline legend lines par plot
-#'@import matlab
 #'@examples
 #'
 #' ############################
