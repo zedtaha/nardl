@@ -73,7 +73,9 @@ lagm <- function(m, nLags) {
 #'@examples
 #'
 #'reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
-#'arch<-ArchTest(reg$selresidu,reg$np)
+#'x<-reg$selresidu
+#'nlag<-reg$np
+#'ArchTest(x,lags=nlag)
 #'
 #'@export
 
@@ -146,8 +148,23 @@ bp2<-function(object,nlags,fill=NULL,type=c("F","Chi2")){
 }
 
 #-------------------------------------------------------------------------------
-# Function cumsq
+#' Function cumsq
+#'
+#'@param e is the recursive errors
+#'@param k is the estimated coefficients length
+#'@param n is the recursive errors length
+#'@importFrom graphics abline legend lines par plot
+#'@examples
+#'
+#'reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
+#'e<-reg$rece
+#'k<-reg$k
+#'n<-reg$n
+#'cumsq(e=e,k=k,n=n)
+#'
+#'@export
 cumsq<-function(e,k,n){
+
   w<-as.matrix(na.omit(e))
   w=cumsum(w^2)/sum(w^2)
   m=abs(0.5*(n-k)-1) #abs to avoid negative log
@@ -167,7 +184,7 @@ cumsq<-function(e,k,n){
   legend(par("usr")[2],par("usr")[4],
          xpd = TRUE ,
          bty = "n",
-         c("CUSUM of squares","5% significance"),
+        c("CUSUM of squares","5% significance"),
          lty = c(1, 1),
          cex=0.6,
          col=c("blue","red") )
@@ -175,7 +192,21 @@ cumsq<-function(e,k,n){
 }
 
 #-------------------------------------------------------------------------------
-# Function cusum
+#' Function cusum
+#'
+#'@param e is the recursive errors
+#'@param k is the estimated coefficients length
+#'@param n is the recursive errors length
+#'@importFrom graphics abline legend lines par plot
+#'@examples
+#'
+#'reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
+#'e<-reg$rece
+#'k<-reg$k
+#'n<-reg$n
+#'cusum(e=e,k=k,n=n)
+#'
+#'@export
 cusum<-function(e,k,n){
   w<-as.matrix(na.omit(e))
   #n<-length(e)
@@ -191,7 +222,7 @@ cusum<-function(e,k,n){
   par(mar = c(5,4,4,8))
   plot(x,w,main="CUSUM Test",type = "l",ylim = grange,xlab = "",ylab = "Emperical fluctuation process",col="blue")
   lines(x,w1,col="red")
-  lines(x,w2,col="red")
+lines(x,w2,col="red")
   abline(h=0,lty=2)
   legend(par("usr")[2],par("usr")[4],
          xpd = TRUE ,

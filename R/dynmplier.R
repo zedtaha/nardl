@@ -76,13 +76,14 @@ plotmplier<-function(model,np,k,h){
   mpp<-mplier(alpha,betap,varphi,vpip,np,h,k)
   mpn<-mplier(alpha,betan,varphi,vpin,np,h,k)
   x = seqa(0,1,(h+1))
-  yp<-cbind(matlab::zeros(1,1),t(mpp))
-  yn = cbind(matlab::zeros(1,1),t(mpn))
+
+  yp<-cbind(matrix(c(0),1,1),t(mpp))
+  yn = cbind(matrix(c(0),1,1),t(mpn))
   dmp<-mpp-mpn
   yrange<-range(yp,yn,(yp-yn))
   par(mar = c(5,4,4,8))
   plot(x,yp,main="Dynamic multiplier",type = "l",ylim =yrange ,xlab ="",
-       ylab = "", col="red")
+      ylab = "", col="red")
   lines(x,yn,col="blue")
   lines(x,(yp-yn),lty=2,col="darkgreen")
   abline(h=0)
@@ -93,7 +94,5 @@ plotmplier<-function(model,np,k,h){
   lty = c(1, 1, 2),
   cex=0.6,
   col=c("blue","red","darkgreen"))
-
-
 
 }

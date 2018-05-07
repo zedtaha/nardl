@@ -9,7 +9,6 @@
 #'@param graph TRUE to show stability tests plot
 #'@param case case number 3 for (unrestricted intercert, no trend) and 5 (unrestricted intercept, unrestricted trend), 1 2 and 4 not supported
 #'@importFrom stats lm AIC BIC pchisq as.formula model.frame model.matrix model.response na.omit sd update vcov embed resid coef logLik nobs pf pnorm df.residual formula
-#'@importFrom graphics abline legend lines par plot
 #'@importFrom strucchange recresid
 #'@importFrom tseries jarque.bera.test
 #'@importFrom gtools na.replace
@@ -292,17 +291,20 @@ nardl<-function(formula,data,p=NULL,q=NULL,ic=c("aic","bic","ll","R2"),
   rece<-strucchange::recresid(fit)
  # plot cumsum and cumsumq
   if(graph==TRUE){
+    if(length(rece)<=1) stop("length of recursive residuals is less then 1! ")
+    #x11()
     bbst<-sel$coefficients[,1]
-    kt<-length(bbst[-1])
+    k<-length(bbst[-1])
     n<-length(residu)
-    cusum(rece,kt,n)
-    cumsq(rece,kt,n)
+    cusum(rece,k,n)
+    cumsq(rece,k,n)
+
   }
 
   obs<-nobs(fit)
 
  out<-list(fstat=fstat, fit=fit,fitcoef=fitcoef, sel=sel, cof=cof,coof=coof,
-       k=k,case=case,lvars=lvars,selresidu=residu,
+       k=k,n=n,case=case,lvars=lvars,selresidu=residu,
        tasym=tasym,pasym=pasym,jbtest=jbtest,arch=arch,
        np=np,rece=rece,obs=obs,AK=AK,R2=R2,SC=SC,ll=ll,vcc=vcc,fb=fb,
        fb1=fb1,fb2=fb2,lrse=lrse,lrt=lrt,lrpv=lrpv,lres=lres,lm2=lm2)

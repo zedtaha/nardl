@@ -19,6 +19,8 @@ Computes the Lagrange multiplier test for conditional heteroscedasticity of Engl
 \examples{
 
 reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
-arch<-ArchTest(reg$selresidu,reg$np)
+x<-reg$selresidu
+nlag<-reg$np
+ArchTest(x,lags=nlag)
 
 }
