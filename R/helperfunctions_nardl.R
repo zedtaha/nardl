@@ -64,51 +64,6 @@ lagm <- function(m, nLags) {
 
 
 #-------------------------------------------------------------------------------
-#' LM test for serial correlation
-#'
-#'
-#'@param object fitted lm model
-#'@param nlags positive integer number of lags
-#'@param fill starting values for the lagged residuals in the auxiliary regression. By default 0.
-#'@param type Fisher or Chisquare statistics
-#'@importFrom stats lm pchisq
-#'@importFrom gtools na.replace
-#'@examples
-#'
-#'reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
-#'lm2<-bp2(reg$fit,reg$np,fill=0,type="F")
-#'
-#'@export
-
-bp2<-function(object,nlags,fill=NULL,type=c("F","Chi2")){
-  e<-as.matrix(object$residuals)
-  n<-nrow(e)
-  x<-as.matrix(object$model[,-1])
-  xx<-cbind(x,lagm(e,nlags))
-  if(fill==0){
-    xx<-na.replace(xx,0)
-    u<-lm(e~xx)
-    r2<-summary(u)$r.squared
-    LM<-n*r2
-    pv<-pchisq(LM,nlags,lower.tail = FALSE)
-
-  }
-  else{
-    u<-lm(e~xx)
-    r2<-summary(u)$r.squared
-    LM<-(n-nlags)*r2
-  }
-  if(type=="Chi2"){pv<-pchisq(LM,nlags,lower.tail = FALSE)}
-  if(type=="F"){pv<-pf(LM,nlags,1,lower.tail = FALSE)}
-
-  res<-cbind(LM,pv,nlags)
-  colnames(res)<-c("LM","P-value","lags")
-  return(res)
-}
-
-
-
-#-------------------------------------------------------------------------------
 # Function seqa
 seqa<-function(a,b,c){
   #seq=(a:b:(a+b*(c-1)))';
