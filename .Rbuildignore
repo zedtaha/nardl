@@ -1,4 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 Paper
-
+_config.yml
+index.md

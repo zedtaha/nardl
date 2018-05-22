@@ -24,6 +24,44 @@ nardl(formula, data, p = NULL, q = NULL, ic = c("aic", "bic", "ll", "R2"),
 
 \item{case}{case number 3 for (unrestricted intercert, no trend) and 5 (unrestricted intercept, unrestricted trend), 1 2 and 4 not supported}
 }
+\value{
+An object of class \code{nardl}. This is a list with the following
+components :
+
+\itemize{
+   \item fstat:
+   \item fit:
+   \item fitcoef:
+   \item sel:
+   \item cof:
+   \item coof:
+   \item k:
+   \item n:
+   \item case:
+   \item lvars:
+   \item selresidu:
+   \item tasym:
+   \item pasym:
+   \item jbtest:
+   \item arch:
+   \item np:
+   \item rece:
+   \item obs:
+   \item AK:
+   \item R2:
+   \item SC:
+   \item ll:
+   \item vcc:
+   \item fb:
+   \item fb1:
+   \item fb2:
+   \item lrse:
+   \item lrt:
+   \item lrpv:
+   \item lres:
+   \item lm2:
+}
+}
 \description{
 Nonlinear ARDL function
 }

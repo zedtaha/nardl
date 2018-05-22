@@ -1,20 +1,58 @@
 #'Nonlinear ARDL function
 #'
-#'@param formula food~inf or food~inf|I(inf^2)
-#'@param data the dataframe
-#'@param p  lags of dependent variable
-#'@param q  lags of independent variables
-#'@param ic : c("aic","bic","ll","R2") criteria model selection
-#'@param maxlags if TRUE auto lags selection
-#'@param graph TRUE to show stability tests plot
-#'@param case case number 3 for (unrestricted intercert, no trend) and 5 (unrestricted intercept, unrestricted trend), 1 2 and 4 not supported
-#'@importFrom stats lm AIC BIC pchisq as.formula model.frame model.matrix model.response na.omit sd update vcov embed resid coef logLik nobs pf pnorm df.residual formula
-#'@importFrom strucchange recresid
-#'@importFrom tseries jarque.bera.test
-#'@importFrom gtools na.replace
-#'@importFrom utils head
-#'@import Formula
-#'@examples
+#' @param formula food~inf or food~inf|I(inf^2)
+#' @param data the dataframe
+#' @param p  lags of dependent variable
+#' @param q  lags of independent variables
+#' @param ic : c("aic","bic","ll","R2") criteria model selection
+#' @param maxlags if TRUE auto lags selection
+#' @param graph TRUE to show stability tests plot
+#' @param case case number 3 for (unrestricted intercert, no trend) and 5 (unrestricted intercept, unrestricted trend), 1 2 and 4 not supported
+#'
+#' @return An object of class \code{nardl}. This is a list with the following
+#' components :
+#'
+#' \itemize{
+#'    \item fstat:
+#'    \item fit:
+#'    \item fitcoef:
+#'    \item sel:
+#'    \item cof:
+#'    \item coof:
+#'    \item k:
+#'    \item n:
+#'    \item case:
+#'    \item lvars:
+#'    \item selresidu:
+#'    \item tasym:
+#'    \item pasym:
+#'    \item jbtest:
+#'    \item arch:
+#'    \item np:
+#'    \item rece:
+#'    \item obs:
+#'    \item AK:
+#'    \item R2:
+#'    \item SC:
+#'    \item ll:
+#'    \item vcc:
+#'    \item fb:
+#'    \item fb1:
+#'    \item fb2:
+#'    \item lrse:
+#'    \item lrt:
+#'    \item lrpv:
+#'    \item lres:
+#'    \item lm2:
+#' }
+#'
+#' @importFrom stats lm AIC BIC pchisq as.formula model.frame model.matrix model.response na.omit sd update vcov embed resid coef logLik nobs pf pnorm df.residual formula
+#' @importFrom strucchange recresid
+#' @importFrom tseries jarque.bera.test
+#' @importFrom gtools na.replace
+#' @importFrom utils head
+#' @import Formula
+#' @examples
 #'
 #'############################################
 #'# Fit the nonlinear cointegrating autoregressive distributed lag model
