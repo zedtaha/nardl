@@ -11,7 +11,7 @@
 #'  \itemize{
 #'    \item icres: a matrix with the AIC, BIC, LL and R2 values
 #'    \item sel: a \code{\link[stats]{summary.lm}} object with the actual fit
-#'    \item np: the number of p
+#'    \item np: the number of lags
 #'    \item jbtest: a list with the results of the JB test
 #'    \item lmtest: a list with the statistic nd p value related to
 #'    the LM test.
