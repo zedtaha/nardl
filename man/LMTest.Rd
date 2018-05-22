@@ -16,6 +16,10 @@ LMTest(x, ...)
 bp2(object, nlags, fill = NULL, type = c("F", "Chi2"))
 }
 \arguments{
+\item{x}{a \code{\link{nardl}} or \code{\link{summary.nardl}} object.}
+
+\item{...}{arguments passed from and to other methods}
+
 \item{fill}{starting values for the lagged residuals in the
 auxiliary regression. By default 0.}
 

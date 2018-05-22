@@ -10,6 +10,7 @@
 #' @param fill starting values for the lagged residuals in the
 #' auxiliary regression. By default 0.
 #' @param type Fisher or Chisquare statistics
+#' @param ... arguments passed from and to other methods
 #'
 #' @return a matrix with 1 row and 3 named columns, containing the
 #' value for LM, the p value and the number of lags used.
