@@ -61,47 +61,6 @@ lagm <- function(m, nLags) {
 
 }
 
-#-------------------------------------------------------------------------------
-#' ARCH test
-#'
-#'Computes the Lagrange multiplier test for conditional heteroscedasticity of Engle (1982), as described by Tsay (2005, pp. 101-102).
-#'
-#'@param x numeric vector
-#'@param lags positive integer number of lags
-#'@param demean logical: If TRUE, remove the mean before computing the test statistic.
-#'@importFrom stats pchisq embed lm
-#'@examples
-#'
-#'reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
-#'x<-reg$selresidu
-#'nlag<-reg$np
-#'ArchTest(x,lags=nlag)
-#'
-#'@export
-
-ArchTest <- function (x, lags=12, demean = FALSE)
-{
-  # Capture name of x for documentation in the output
-  xName <- deparse(substitute(x))
-  #
-  x <- as.vector(x)
-  if(demean) x <- scale(x, center = TRUE, scale = FALSE)
-  #
-  lags <- lags + 1
-  mat <- embed(x^2, lags)
-  arch.lm <- summary(lm(mat[, 1] ~ mat[, -1]))
-  STATISTIC <- arch.lm$r.squared * length(resid(arch.lm))
-  names(STATISTIC) <- "Chi-squared"
-  PARAMETER <- lags - 1
-  names(PARAMETER) <- "df"
-  PVAL <- 1 - pchisq(STATISTIC, df = PARAMETER)
-  METHOD <- "ARCH LM-test;  Null hypothesis:  no ARCH effects"
-  result <- list(statistic = STATISTIC, parameter = PARAMETER,
-                 p.value = PVAL, method = METHOD, data.name =
-                   xName)
-  class(result) <- "htest"
-  return(result)
-}
 
 
 #-------------------------------------------------------------------------------
