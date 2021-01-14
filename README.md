@@ -1,6 +1,7 @@
 ---
 output: github_document
 ---
+![GitHub Logo](/nardl_logo.ico)
 [![](http://www.r-pkg.org/badges/version/nardl)]()
 [![](http://cranlogs.r-pkg.org/badges/nardl)](http://cran.rstudio.com/web/packages/nardl/index.html)
 # nardl
