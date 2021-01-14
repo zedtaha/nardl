@@ -21,8 +21,8 @@
 #'
 #' @return None
 #'
-#' @author Soren Jordan, \email{sorenjordanpols@@gmail.com}, \url{sorenjordan.com}
-#' @author Andrew Q Philips, \email{aphilips@@pols.tamu.edu}, \url{people.tamu.edu/~aphilips/}
+#' @author Soren Jordan, \email{sorenjordanpols@@gmail.com}
+#' @author Andrew Q Philips, \email{aphilips@@pols.tamu.edu}
 #'
 #' @references If you use pssbounds, please cite:
 #' @references Jordan, Soren and Andrew Q. Philips. "pss: Perform bounds test for cointegration and perform dynamic simulations."
@@ -34,11 +34,10 @@
 #' @references Pesaran, M Hashem, Yongcheol Shin and Richard J Smith. 2001. "Bounds testing approaches to the analysis of level relationships." Journal of Applied Econometrics 16(3):289-326.
 #'
 #'
-#' @keywords bounds test, cointegration, ARDL
 #'
 #' @examples
-#' reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
-#' pssbounds(case=reg$case,fstat=reg$fstat,obs=reg$obs,k=reg$k)
+#' reg<-nardl(food~inf,fod,ic="aic",maxlag = 4,graph = TRUE,case=3)
+#' pssbounds(case=reg$case,fstat=reg$fstat,obs=reg$Nobs,k=reg$k)
 #' # F-stat concludes I(1) and cointegrating, t-stat concludes I(0).
 #'
 #'

@@ -53,6 +53,8 @@ lagm <- function(m, nLags) {
     lagM[(i+1):d[1],cid] <- m[1:(d[1]-i),]
   }
 
+  #mnames=paste("L",colnames(m),sep = ".")
+
   cnames <- outer(colnames(m),seq_len(nLags), FUN = paste, sep = "_")
 
   colnames(lagM) <- c(cnames)
@@ -72,9 +74,9 @@ lagm <- function(m, nLags) {
 #'@importFrom stats pchisq embed lm
 #'@examples
 #'
-#'reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
+#'reg<-nardl(food~inf,fod,ic="aic",maxlag = 4,graph = TRUE,case=3)
 #'x<-reg$selresidu
-#'nlag<-reg$np
+#'nlag<-reg$nl
 #'ArchTest(x,lags=nlag)
 #'
 #'@export
@@ -116,8 +118,8 @@ ArchTest <- function (x, lags=12, demean = FALSE)
 #'@importFrom gtools na.replace
 #'@examples
 #'
-#'reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
-#'lm2<-bp2(reg$fit,reg$np,fill=0,type="F")
+#'reg<-nardl(food~inf,fod,ic="aic",maxlag = 4,graph = TRUE,case=3)
+#'lm2<-bp2(reg$fits,reg$nl,fill=0,type="F")
 #'
 #'@export
 
@@ -156,7 +158,7 @@ bp2<-function(object,nlags,fill=NULL,type=c("F","Chi2")){
 #'@importFrom graphics abline legend lines par plot
 #'@examples
 #'
-#'reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
+#'reg<-nardl(food~inf,fod,ic="aic",maxlag = 4,graph = TRUE,case=3)
 #'e<-reg$rece
 #'k<-reg$k
 #'n<-reg$n
@@ -200,7 +202,7 @@ cumsq<-function(e,k,n){
 #'@importFrom graphics abline legend lines par plot
 #'@examples
 #'
-#'reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
+#'reg<-nardl(food~inf,fod,ic="aic",maxlag = 4,graph = TRUE,case=3)
 #'e<-reg$rece
 #'k<-reg$k
 #'n<-reg$n
@@ -241,4 +243,73 @@ seqa<-function(a,b,c){
   se<-seq(a,(a+b*(c-1)),by=b)
   return(t(se))
 }
+
+#-------------------------------------------------------------------------------
+# Function wald test
+#'@importFrom MASS ginv
+wtest=function(rcap,betas,vcov,rsml){
+  wld= t(rcap%*%betas[1:2]-rsml)%*%ginv(rcap%*%vcov%*%t(rcap))%*%(rcap%*%betas[1:2]-rsml)
+  pval= pchisq(wld,ncol(rcap),lower.tail=FALSE)
+  out= cbind(wld,pval)
+  return(out)
+}
+#-------------------------------------------------------------------------------
+# Function lag matrix
+nlagm=function(x,nlags){
+  if(nlags==0){
+    mlag=as.matrix(x)
+  }else{
+    m=lagm(x,nlags)
+    mlag=cbind(x,m)
+  }
+
+  mlag
+}
+#-------------------------------------------------------------------------------
+# Function lag matrix
+nlagm1=function(x,nlags){
+  if(nlags==0){
+    mlag=as.matrix(x)
+  }else{
+    mlag=as.matrix(lagm(x,nlags))
+  }
+
+  mlag
+}
+
+#-------------------------------------------------------------------------------
+# Function lag matrix
+slag=function(y,nlags){
+  nx=nrow(y)
+  kx=ncol(y)
+  lk=ncol(nlags)
+  mlag=mapply(function(x,z) nlagm(as.matrix(y[,x,drop=FALSE]),nlags[,z]),1:kx, 1:lk,SIMPLIFY = FALSE)
+
+  do.call(cbind,mlag)
+}
+
+AICC <- function(f) {
+  sample.size<-f$df + length(f$coeff)
+  aic<-log(sum(resid(f)^2)/sample.size)+(length(f$coeff)/sample.size)*2
+  aic
+
+}
+
+BICC <- function(f) {
+  sample.size<-f$df + length(f$coeff)
+  bic<-log(sum(resid(f)^2)/sample.size)+(length(f$coeff)/sample.size)*log(sample.size)
+  bic
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
