@@ -33,8 +33,8 @@ As discussed in Philips (2016), the upper and lower bounds of the cointegration 
 More details are available at \url{http://andyphilips.github.io/pssbounds/}.
 }
 \examples{
-reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
-pssbounds(case=reg$case,fstat=reg$fstat,obs=reg$obs,k=reg$k)
+reg<-nardl(food~inf,fod,ic="aic",maxlag = 4,graph = TRUE,case=3)
+pssbounds(case=reg$case,fstat=reg$fstat,obs=reg$Nobs,k=reg$k)
 # F-stat concludes I(1) and cointegrating, t-stat concludes I(0).
 
 
@@ -53,11 +53,7 @@ Narayan, Paresh Kumar. 2005. "The Saving and Investment Nexus for China: Evidenc
 Pesaran, M Hashem, Yongcheol Shin and Richard J Smith. 2001. "Bounds testing approaches to the analysis of level relationships." Journal of Applied Econometrics 16(3):289-326.
 }
 \author{
-Soren Jordan, \email{sorenjordanpols@gmail.com}, \url{sorenjordan.com}
+Soren Jordan, \email{sorenjordanpols@gmail.com}
 
-Andrew Q Philips, \email{aphilips@pols.tamu.edu}, \url{people.tamu.edu/~aphilips/}
+Andrew Q Philips, \email{aphilips@pols.tamu.edu}
 }
-\keyword{ARDL}
-\keyword{bounds}
-\keyword{cointegration,}
-\keyword{test,}

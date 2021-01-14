@@ -20,7 +20,7 @@ LM test for serial correlation
 }
 \examples{
 
-reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
-lm2<-bp2(reg$fit,reg$np,fill=0,type="F")
+reg<-nardl(food~inf,fod,ic="aic",maxlag = 4,graph = TRUE,case=3)
+lm2<-bp2(reg$fits,reg$nl,fill=0,type="F")
 
 }

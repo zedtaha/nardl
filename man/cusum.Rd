@@ -18,7 +18,7 @@ Function cusum
 }
 \examples{
 
-reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE,case=3)
+reg<-nardl(food~inf,fod,ic="aic",maxlag = 4,graph = TRUE,case=3)
 e<-reg$rece
 k<-reg$k
 n<-reg$n
