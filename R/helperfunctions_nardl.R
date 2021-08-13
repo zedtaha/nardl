@@ -287,19 +287,29 @@ slag=function(y,nlags){
 
   do.call(cbind,mlag)
 }
-
-AICC <- function(f) {
+## Please visit https://stats.stackexchange.com/a/87357/40931
+## OUTPUT for both are same
+AICC <- function(f,recalculate=F) {
+  if(recalculate) {AIC(f)}else{ 
   sample.size<-f$df + length(f$coeff)
-  aic<-log(sum(resid(f)^2)/sample.size)+(length(f$coeff)/sample.size)*2
+  aic<-sample.size*(log(2*pi)+1+log((sum(f$residuals^2)/sample.size)))  +((length(f$coefficients)+1)*2)
   aic
-
+  }
 }
 
-BICC <- function(f) {
-  sample.size<-f$df + length(f$coeff)
-  bic<-log(sum(resid(f)^2)/sample.size)+(length(f$coeff)/sample.size)*log(sample.size)
-  bic
-
+# check https://stackoverflow.com/a/35924744/596021
+              
+BICC <- function(f,recalculate=F) {
+if(recalculate) {BIC(f)}else{ 
+    res<-f$residuals
+    n<-nrow(f$model)    
+    w<-rep(1,n)
+    ll<-0.5 * (sum(log(w)) - n * (log(2 * pi) + 1 - log(n) + log(sum(w * res^2))))
+    k.original<-length(f$coefficients)
+    df.ll<-k.original+1 
+    bic<- -2 * ll + log(n) * df.ll
+    bic
+   }
 }
 
 
